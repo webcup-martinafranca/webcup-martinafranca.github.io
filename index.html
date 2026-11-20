@@ -34,6 +34,9 @@ a{color:inherit;text-decoration:none}
 .isc-b .sbn-t b{color:#ffd77a}.isc-b .sbn-t small{color:#d9c3a0}
 .isc-b .isc-wm{position:absolute;right:-18px;top:-30px;height:190px;opacity:.14;pointer-events:none}.isc-b .isc-lg{position:absolute;right:16px;top:50%;transform:translateY(-50%);height:64px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
 .sbn-lv{display:flex;gap:4px;margin-top:6px}.sbn-lv i{font-style:normal;font-size:9.5px;font-weight:900;letter-spacing:1px;padding:2px 7px;border-radius:20px;color:#1a0d04}
+.sbn-lvb{position:relative;box-shadow:0 0 0 3px var(--lc),0 4px 12px rgba(0,0,0,.35)!important}
+.sbn-md{position:absolute;right:-10px;top:-10px;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:900;color:#2a1608;letter-spacing:.2px;box-shadow:0 2px 6px rgba(0,0,0,.5)}
+.sbn-md.lv-gold,.sbn-lv i.lv-gold{background:linear-gradient(135deg,#fff1b0,#e8b923 45%,#a87a10)}.sbn-md.lv-silver,.sbn-lv i.lv-silver{background:linear-gradient(135deg,#fff,#c0c6cc 45%,#7d858c)}.sbn-md.lv-bronze,.sbn-lv i.lv-bronze{background:linear-gradient(135deg,#ffd2a8,#c07a45 45%,#7a431c)}
 .sbn-b{flex:none;width:76px;height:76px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.35)}
 .sbn-s{display:block;width:52px;height:60px;background:#111;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
 .sbn-t{max-width:175px}.sbn-t b{display:block;font-size:24px;font-weight:900;letter-spacing:2.5px;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.45)}.sbn-t small{display:block;margin-top:3px;font-size:11.5px;line-height:1.3;font-weight:600;opacity:.95;text-shadow:0 1px 4px rgba(0,0,0,.6)}
@@ -1339,7 +1342,7 @@ function tennisCat(k){
   const C=TCAT[k]; const T=Object.entries(TENNIS.tabelloni).filter(([id,t])=>t.cat===k);
   $(`${topbar("Tennis · "+C.nome,"go:tennis")}
     <div class="h1">${MF(C.nome)}</div><div class="pill ten">Scegli il tabellone</div>
-    ${T.map(([id,t])=>`<a class="tile t-btn" href="#" data-go="tennis/tab/${id}"><img src="${TBTN[k+t.liv[0]]}" alt="${t.nome}"></a>
+    ${T.map(([id,t])=>`<a class="sbn" href="#" data-go="tennis/tab/${id}" style="background-image:url(${SPONSOR["bn-ten"]})"><span class="sbn-b sbn-lvb" style="--lc:${LIV[t.liv].c}"><span class="sbn-s" style="-webkit-mask-image:url(${SPONSOR[k==="m"?"sil-ten":"sil-tf"]});mask-image:url(${SPONSOR[k==="m"?"sil-ten":"sil-tf"]})"></span><span class="sbn-md lv-${t.liv}">${LIV[t.liv].nome}</span></span><span class="sbn-t"><b>${C.nome.toUpperCase()}</b><span class="sbn-lv"><i class="lv-${t.liv}">${LIV[t.liv].nome}</i></span></span></a>
       <div class="t-champ-mini">${tTrophy(t.liv)} Campione ${TENNIS.edizione}: <b>${tnome(t.campione)}</b></div>`).join("")}`);
 }
 function tMatch(m,fin){
