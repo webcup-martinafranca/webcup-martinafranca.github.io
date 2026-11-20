@@ -27,7 +27,7 @@ a{color:inherit;text-decoration:none}
 .sbn::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.36),rgba(0,0,0,.08) 55%,transparent)}.sbn>*{position:relative}.sbn:active{transform:scale(.98)}
 .sbn-b{flex:none;width:76px;height:76px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.35)}
 .sbn-s{display:block;width:52px;height:60px;background:#111;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-.sbn-t b{display:block;font-size:24px;font-weight:900;letter-spacing:2.5px;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.45)}.sbn-t small{display:block;margin-top:3px;font-size:12px;font-weight:600;opacity:.95;text-shadow:0 1px 4px rgba(0,0,0,.55)}
+.sbn-t{max-width:175px}.sbn-t b{display:block;font-size:24px;font-weight:900;letter-spacing:2.5px;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.45)}.sbn-t small{display:block;margin-top:3px;font-size:11.5px;line-height:1.3;font-weight:600;opacity:.95;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 .tile:active{transform:scale(.98)}
 .tile img{width:100%;display:block}
 .btn{display:flex;align-items:center;justify-content:space-between;margin:10px 12px;padding:18px 18px;border-radius:14px;
@@ -1564,7 +1564,7 @@ function iscrizioni(){
 function home(){
   $(`${topbar("WEB CUP 2.0")}
   <div class="hero"><img src="${SPONSOR["home-hero"]}" alt="W CUP – Tennis, Calcio, Padel"></div>
-  ${[["tennis","ten","TENNIS","Tabelloni e Risultati"],["padel","pad","PADEL","Tappe e Master"],["calcio","cal","CALCIO","Competizioni · Risultati"]].map(([g,k,t,p])=>`<a class="sbn" href="#" data-go="${g}" style="background-image:url(${SPONSOR["bn-"+k]})"><span class="sbn-b"><span class="sbn-s" style="-webkit-mask-image:url(${SPONSOR["sil-"+k]});mask-image:url(${SPONSOR["sil-"+k]})"></span></span><span class="sbn-t"><b>${t}</b><small>${p}</small></span></a>`).join("")}
+  ${[["tennis","ten","TENNIS","Tabelloni, Risultati, Albo d'oro"],["padel","pad","PADEL","Risultati, Tappe, Master e Albo d'oro"],["calcio","cal","CALCIO","Competizioni, Risultati, Statistiche, Giornale"]].map(([g,k,t,p])=>`<a class="sbn" href="#" data-go="${g}" style="background-image:url(${SPONSOR["bn-"+k]})"><span class="sbn-b"><span class="sbn-s" style="-webkit-mask-image:url(${SPONSOR["sil-"+k]});mask-image:url(${SPONSOR["sil-"+k]})"></span></span><span class="sbn-t"><b>${t}</b><small>${p}</small></span></a>`).join("")}
   <a class="tile" href="#" data-go="iscrizioni"><img src="${IMG("ConsoleDocuments/Copia%20di%20Copia%20di%20GIRONI%20(1).jpg")}" alt="Iscriviti"></a>
   <a class="tile" href="https://www.indigoshop.it/it/131_replay/" target="_blank" rel="noopener"><img src="${SPONSOR.replay}" alt="Replay"></a>
   <div class="shops-t">I NOSTRI STORE a MARTINA FRANCA:</div><div class="shops">${[["tnt","https://www.tntshop.it/it/","TNT"],["web","https://www.webmasculinestore.com/it/","WEB"],["glam","https://www.indigoshop.it/it/page/9-pure-glam-boutique.html","pure Glam"],["33","https://www.33sneakers.com/it/","33sneakers"]].map(([k,u,n])=>`<a class="shop" href="${u}" target="_blank" rel="noopener"><img src="${SPONSOR["shop-"+k]}" alt="${n}"><span>Visita il sito ›</span></a>`).join("")}</div>
