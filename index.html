@@ -494,6 +494,11 @@ body.tt .match.fin-bronzo .sc,body.tt .match.fin-bronzo .meta,body.tt .match.fin
 .sp-i{display:flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:8px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-weight:800;font-size:13px;letter-spacing:.5px;color:#fff}
 .spons-g>.sp-i:last-child:nth-child(odd){grid-column:1/-1}
 .spons.loc{border-color:rgba(90,160,230,.5)}.spons.loc .spons-t{color:#7ec3ff}
+.isc{margin:12px;padding:14px;border-radius:16px;border-left:6px solid;background:linear-gradient(135deg,#2a1608,#120904);box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.isc.ten{border-color:#c0532f}.isc.pad{border-color:#2f6fb5}.isc.o50{border-color:#e0453a}.isc.und{border-color:#3fb4ff}
+.isc-h{display:flex;align-items:center;gap:10px;margin-bottom:8px}.isc-h span{font-size:26px}.isc-h b{font-size:20px;font-weight:900}
+.isc-wa{display:flex;align-items:center;gap:12px;margin-top:8px;padding:11px 14px;border-radius:12px;background:#25d366;color:#fff;font-weight:800}
+.isc-wa span{flex:1;line-height:1.15}.isc-wa small{display:block;font-weight:600;font-size:12px;opacity:.9}.isc-wa i{font-style:normal;font-weight:900}
 .br-logo{position:absolute;filter:drop-shadow(0 4px 12px rgba(0,0,0,.6));pointer-events:none}
 .t-ar.misto{background:linear-gradient(135deg,#bfe3ff,#3b82c4);border-color:#e3f2ff;color:#0d2236}
 
@@ -1526,13 +1531,30 @@ function padelReg(){
     <a class="sez pad" href="#" data-go="padel/master"><div class="sez-i"><span class="reg-ic">📜</span></div><div class="comp-txt"><div class="comp-n">REGOLAMENTO MASTER FINALE</div><div class="comp-s">Sorteggi, semifinali e quote del Master</div></div><div class="arr">›</div></a>
     <div class="reg-b spirit">${PADEL.luogo}</div>`);
 }
+const ISCRIZIONI=[
+  {sport:"Tennis", cls:"ten", ico:"🎾", ref:[["Francesco Sforza","393295863711"]]},
+  {sport:"Padel", cls:"pad", ico:"PAD", ref:[["Pierpaolo Basilico","393497921306"]]},
+  {sport:"Calcio Over 50", cls:"o50", ico:"⚽", ref:[["Daniele Devito","393283189045"]]},
+  {sport:"Calcio Under", cls:"und", ico:"⚽", ref:[["Stefano Marinuzzi","393883075509"],["Vito Basile","393898315744"]]}
+];
+function iscrizioni(){
+  const wa=(n,sp)=>`https://wa.me/${n}?text=${encodeURIComponent("Ciao, vorrei informazioni per iscrivermi alla WEB CUP – "+sp)}`;
+  const WAI=`<svg viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="#fff" stroke-width="1.9" d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.3 20.7l4.4-1.1A8.8 8.8 0 1 0 12 3.2z"/><path fill="#fff" d="M9 7.7c.2 0 .4 0 .6.4l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5.4.8 1.1 1.6 1.9 2.1.6.4 1 .5 1.2.6.2.1.3 0 .4-.1l.6-.8c.2-.2.3-.2.5-.1l1.8.9c.3.1.4.2.4.4 0 .2 0 1-.5 1.5-.5.5-1.4.8-2 .8-.7 0-2.2-.4-3.8-1.9-1.9-1.7-2.7-3.6-2.7-4.6 0-1 .5-1.6.8-1.9.2-.3.5-.3.6-.3z"/></svg>`;
+  $(`${topbar("Iscrizioni","go:")}
+    <div class="premio-h"><img src="${WL("gold")}" alt="WEB CUP" style="width:96px;height:auto"></div>
+    <div class="h1">Iscriviti subito</div><div class="pill">Scrivici su WhatsApp</div>
+    <div class="note" style="text-align:center;margin-top:0">Scegli il tuo sport: si apre una chat con un referente dello staff che ti darà tutte le informazioni per iscriverti.</div>
+    ${ISCRIZIONI.map(x=>`<div class="isc ${x.cls}"><div class="isc-h"><span>${x.ico==="PAD"?PAD_ICO.replace(/width="64" height="64"/,'width="30" height="30"'):x.ico}</span><b>${MF(x.sport)}</b></div>
+      ${x.ref.map(([n,num])=>`<a class="isc-wa" href="${wa(num,x.sport)}" target="_blank" rel="noopener">${WAI}<span>${n}<small>+${num.slice(0,2)} ${num.slice(2,5)} ${num.slice(5)}</small></span><i>Scrivi ›</i></a>`).join("")}</div>`).join("")}
+    <div class="note" style="text-align:center">${PADEL.luogo}</div>`);
+}
 function home(){
   $(`${topbar("WEB CUP 2.0")}
   <div class="hero"><img src="${IMG("1/HOME%20WEB%20CUP%20APP%20(1).jpg")}" alt="WEB CUP 2026"></div>
   <a class="tile" href="#" data-go="tennis"><img src="${IMG("1/PADEL%20(2).jpg")}" alt="Tennis"></a>
   <a class="tile" href="#" data-go="padel"><img src="${IMG("1/PADEL.jpg")}" alt="Padel"></a>
   <a class="tile" href="#" data-go="calcio"><img src="${IMG("1/CALCIO.jpg")}" alt="Calcio"></a>
-  <a class="tile" href="${MAILUP(683)}" target="_blank" rel="noopener"><img src="${IMG("ConsoleDocuments/Copia%20di%20Copia%20di%20GIRONI%20(1).jpg")}" alt="Iscriviti"></a>
+  <a class="tile" href="#" data-go="iscrizioni"><img src="${IMG("ConsoleDocuments/Copia%20di%20Copia%20di%20GIRONI%20(1).jpg")}" alt="Iscriviti"></a>
   <a class="tile" href="https://www.indigoshop.it/it/131_replay/" target="_blank" rel="noopener"><img src="${SPONSOR.replay}" alt="Replay"></a>
   <div class="shops">
     <a class="shop indigo" href="https://www.indigoshop.it/it/" target="_blank" rel="noopener"><b>inDigo</b><small>Essential</small><span>Visita il sito ›</span></a>
@@ -2062,6 +2084,7 @@ function go(path){
   if(p[0]==="tennis" && p[1]==="tab" && TENNIS.tabelloni[p[2]]) return tennisTab(p[2]);
   if(p[0]==="tennis" && p[1]==="vista" && TENNIS.tabelloni[p[2]]) return tennisVista(p[2]);
   if(p[0]==="tennis" && p[1]==="anno" && TENNIS.archivio[p[2]]) return tennisAnno(p[2]);
+  if(p[0]==="iscrizioni") return iscrizioni();
   if(p[0]==="padel"){
     if(p[1]==="master") return padelMaster(p[2]);
     if(p[1]==="oop") return padelOop();
