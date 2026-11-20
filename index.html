@@ -483,6 +483,17 @@ body.tt .match.fin-bronzo .sc,body.tt .match.fin-bronzo .meta,body.tt .match.fin
 .sp-cta{display:block;text-align:center;padding:10px;background:#d32027;color:#fff;font-weight:800;font-size:14px;letter-spacing:.5px}
 .social a.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}.social a.fb{background:#1877f2}.social a.yt{background:#ff0000}.social a.wa{background:#25d366}.social a{width:46px;height:46px;box-shadow:0 4px 10px rgba(0,0,0,.4)}
 .pd-rip{display:inline-block;margin-top:2px;font-size:9px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:#3ccf6e;color:#06210f;border-radius:99px;padding:1px 6px}
+.shops{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px}
+.shop{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:96px;padding:14px;border-radius:14px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.shop b{font-size:24px;font-weight:900;line-height:1}.shop small{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.8;margin-top:4px}.shop span{margin-top:10px;font-size:11px;font-weight:800;opacity:.9}
+.shop.indigo{background:linear-gradient(135deg,#2b3a8f,#121a4a);color:#fff}.shop.tnt{background:#000;color:#fff;border:1px solid #333}
+.shop.snk{background:linear-gradient(135deg,#f4f4f4,#cfcfcf);color:#111}.shop.web{background:#fff;color:#111}.shop.web b{letter-spacing:4px}
+.spons{margin:16px 12px;padding:14px;border-radius:16px;background:linear-gradient(135deg,#2a1608,#120904);border:1px solid rgba(242,177,52,.45)}
+.spons-t{text-align:center;font-weight:900;letter-spacing:3px;color:var(--gold);font-size:14px;margin-bottom:10px}
+.spons-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.sp-i{display:flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:8px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-weight:800;font-size:13px;letter-spacing:.5px;color:#fff}
+.spons-g>.sp-i:last-child:nth-child(odd){grid-column:1/-1}
+.spons.loc{border-color:rgba(90,160,230,.5)}.spons.loc .spons-t{color:#7ec3ff}
 .br-logo{position:absolute;filter:drop-shadow(0 4px 12px rgba(0,0,0,.6));pointer-events:none}
 .t-ar.misto{background:linear-gradient(135deg,#bfe3ff,#3b82c4);border-color:#e3f2ff;color:#0d2236}
 
@@ -1523,6 +1534,14 @@ function home(){
   <a class="tile" href="#" data-go="calcio"><img src="${IMG("1/CALCIO.jpg")}" alt="Calcio"></a>
   <a class="tile" href="${MAILUP(683)}" target="_blank" rel="noopener"><img src="${IMG("ConsoleDocuments/Copia%20di%20Copia%20di%20GIRONI%20(1).jpg")}" alt="Iscriviti"></a>
   <a class="tile" href="https://www.indigoshop.it/it/131_replay/" target="_blank" rel="noopener"><img src="${SPONSOR.replay}" alt="Replay"></a>
+  <div class="shops">
+    <a class="shop indigo" href="https://www.indigoshop.it/it/" target="_blank" rel="noopener"><b>inDigo</b><small>Essential</small><span>Visita il sito ›</span></a>
+    <a class="shop tnt" href="https://www.tntshop.it/it/" target="_blank" rel="noopener"><b>TNT</b><small>Jeanswear Research</small><span>Visita il sito ›</span></a>
+    <a class="shop snk" href="https://www.33sneakers.com/it/" target="_blank" rel="noopener"><b>33sneakers</b><small>Sneakers &amp; style</small><span>Visita il sito ›</span></a>
+    <a class="shop web" href="https://www.webmasculinestore.com/it/" target="_blank" rel="noopener"><b>WEB</b><small>Masculine Store</small><span>Visita il sito ›</span></a>
+  </div>
+  <div class="spons"><div class="spons-t">BUSINESS SPONSOR</div><div class="spons-g">${["BOB COMPANY","LYLE &amp; SCOTT","G-STAR RAW"].map(n=>`<div class="sp-i">${n}</div>`).join("")}</div></div>
+  <div class="spons loc"><div class="spons-t">LOCAL SPONSOR</div><div class="spons-g">${[["IL CHIOSCHETTO"],["COSMO ENERGY"],["DOCTOR GLASS"],["COURIER EXPRESS"],["REFRICELL SERVICE SRL"],["PADEL CLICK","http://www.padelclick.it/"],["TITANIUM"]].map(([n,u])=>u?`<a class="sp-i" href="${u}" target="_blank" rel="noopener">${n}</a>`:`<div class="sp-i">${n}</div>`).join("")}</div></div>
   <div class="dev" style="display:none"><b>Prototipo.</b> <b>Calcio</b>, <b>Tennis</b> e <b>Padel</b> migrati: WEB CUP, Mundialito e WEB SUPER CUP con risultati, classifiche e marcatori calcolati in automatico. Le Iscrizioni aprono ancora la pagina Mailup attuale.</div>
   <div class="social">
     <a class="ig" href="https://www.instagram.com/webcup2024/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="#fff" stroke="none"/></svg></a><a class="fb" href="https://www.facebook.com/profile.php?id=61556100426427" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#fff" d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21z"/></svg></a>
