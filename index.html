@@ -25,9 +25,14 @@ a{color:inherit;text-decoration:none}
 .tile{display:block;margin:10px 12px;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.45);transition:transform .15s}
 .sbn{position:relative;display:flex;align-items:center;gap:14px;margin:10px 12px;height:122px;padding:0 16px 0 16px;border-radius:18px;overflow:hidden;background:#333 right center/cover no-repeat;box-shadow:0 8px 20px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.14);text-decoration:none;color:#fff;transition:transform .15s}
 .sbn::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.36),rgba(0,0,0,.08) 55%,transparent)}.sbn>*{position:relative}.sbn:active{transform:scale(.98)}
+.isc-b{background:linear-gradient(120deg,#1c1008,#0b0603);box-shadow:0 8px 20px rgba(0,0,0,.45),inset 0 0 0 1.5px #e9a52c}.isc-b::before{display:none}
+.isc-b .sbn-t b{color:#ffd77a}.isc-b .sbn-t small{color:#d9c3a0}
+.isc-b .isc-wm{position:absolute;right:-18px;top:-30px;height:190px;opacity:.14;pointer-events:none}.isc-b .isc-lg{position:absolute;right:16px;top:50%;transform:translateY(-50%);height:64px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
 .sbn-b{flex:none;width:76px;height:76px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.35)}
 .sbn-s{display:block;width:52px;height:60px;background:#111;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
 .sbn-t{max-width:175px}.sbn-t b{display:block;font-size:24px;font-weight:900;letter-spacing:2.5px;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.45)}.sbn-t small{display:block;margin-top:3px;font-size:11.5px;line-height:1.3;font-weight:600;opacity:.95;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.tile.ms{position:relative}.ms-l{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:10px;font-weight:800;letter-spacing:4px;color:rgba(255,255,255,.75)}
+.rv{opacity:0;transform:translateY(26px) scale(.97);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
 .tile:active{transform:scale(.98)}
 .tile img{width:100%;display:block}
 .btn{display:flex;align-items:center;justify-content:space-between;margin:10px 12px;padding:18px 18px;border-radius:14px;
@@ -1278,7 +1283,11 @@ const CUR={RS:undefined,pre:""};
 const hasGirone = c => c.partite.some(p=>p.fase==="Girone");
 
 /* ============ VISTE ============ */
-const $ = h => document.getElementById("app").innerHTML = h;
+const $ = h => { document.getElementById("app").innerHTML = h; reveal(); };
+let RIO=null;
+function reveal(){ if(!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  RIO&&RIO.disconnect(); RIO=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); RIO.unobserve(e.target);} }),{threshold:.12});
+  document.querySelectorAll("#app .sbn,#app .tile,#app .shop,#app .sp-btns,#app .shops-t").forEach((el,i)=>{ el.classList.add("rv"); el.style.transitionDelay=(el.classList.contains("shop")?(i%2)*90:0)+"ms"; RIO.observe(el); }); }
 const attr = u => u.startsWith("go:") ? `href="#" data-go="${u.slice(3)}"` : `href="${u}" target="_blank" rel="noopener"`;
 const MF = t => String(t).replace(/\b(maschile)\b/gi,'<span class="c-m">$1</span>').replace(/\b(femminile|misto)\b/gi,'<span class="c-f">$1</span>');
 const topbar = (t,back) => `<div class="top">${back?`<a class="back" ${attr(back)}>‹</a><a class="home" href="#" data-go="" aria-label="Home"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 11.5 12 4l9 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9.5h5v-5.5h3v5.5h5V10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg></a>`:""}<div class="ttl">${MF(t)}</div></div>`;
@@ -1565,8 +1574,8 @@ function home(){
   $(`${topbar("WEB CUP 2.0")}
   <div class="hero"><img src="${SPONSOR["home-hero"]}" alt="W CUP – Tennis, Calcio, Padel"></div>
   ${[["tennis","ten","TENNIS","Tabelloni, Risultati, Albo d'oro"],["padel","pad","PADEL","Risultati, Tappe, Master e Albo d'oro"],["calcio","cal","CALCIO","Competizioni, Risultati, Statistiche, Giornale"]].map(([g,k,t,p])=>`<a class="sbn" href="#" data-go="${g}" style="background-image:url(${SPONSOR["bn-"+k]})"><span class="sbn-b"><span class="sbn-s" style="-webkit-mask-image:url(${SPONSOR["sil-"+k]});mask-image:url(${SPONSOR["sil-"+k]})"></span></span><span class="sbn-t"><b>${t}</b><small>${p}</small></span></a>`).join("")}
-  <a class="sbn" href="#" data-go="iscrizioni" style="background-image:url(${SPONSOR["bn-isc"]})"><span class="sbn-b"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 2.8h6v2.4H9z" fill="#111"/><path d="M8.5 10.5l1.2 1.2 2.2-2.4M8.5 15.5l1.2 1.2 2.2-2.4M13.5 10.8h2.5M13.5 15.8h2.5"/></svg></span><span class="sbn-t"><b>ISCRIZIONI</b><small>Tennis, Padel e Calcio: scrivici su WhatsApp</small></span></a>
-  <a class="tile" href="https://www.indigoshop.it/it/131_replay/" target="_blank" rel="noopener"><img src="${SPONSOR.replay}" alt="Replay"></a>
+  <a class="sbn isc-b" href="#" data-go="iscrizioni"><img class="isc-wm" src="${WLOGO.wcup}" alt=""><img class="isc-lg" src="${WLOGO.wcup}" alt="W CUP"><span class="sbn-b"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 2.8h6v2.4H9z" fill="#111"/><path d="M8.5 10.5l1.2 1.2 2.2-2.4M8.5 15.5l1.2 1.2 2.2-2.4M13.5 10.8h2.5M13.5 15.8h2.5"/></svg></span><span class="sbn-t"><b>ISCRIZIONI</b><small>Tennis, Padel e Calcio: scrivici su WhatsApp</small></span></a>
+  <a class="tile ms" href="https://www.indigoshop.it/it/131_replay/" target="_blank" rel="noopener"><img src="${SPONSOR.replay}" alt="Replay"><span class="ms-l">MAIN SPONSOR</span></a>
   <div class="shops-t">I NOSTRI STORE a MARTINA FRANCA:</div><div class="shops">${[["tnt","https://www.tntshop.it/it/","TNT"],["web","https://www.webmasculinestore.com/it/","WEB"],["glam","https://www.indigoshop.it/it/page/9-pure-glam-boutique.html","pure Glam"],["33","https://www.33sneakers.com/it/","33sneakers"]].map(([k,u,n])=>`<a class="shop" href="${u}" target="_blank" rel="noopener"><img src="${SPONSOR["shop-"+k]}" alt="${n}"><span>Visita il sito ›</span></a>`).join("")}</div>
   <a class="tile" href="https://www.indigoshop.it/it/" target="_blank" rel="noopener"><img src="${SPONSOR["indigo-big"]}" alt="inDigo"></a>
   <div class="sp-btns"><a href="#" data-go="sponsor/biz" class="sp-btn">BUSINESS SPONSOR <i>›</i></a><a href="#" data-go="sponsor/loc" class="sp-btn loc">LOCAL SPONSOR <i>›</i></a></div>
