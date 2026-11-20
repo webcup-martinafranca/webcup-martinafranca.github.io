@@ -482,6 +482,7 @@ body.tt .match.fin-bronzo .sc,body.tt .match.fin-bronzo .meta,body.tt .match.fin
 .sponsor img{display:block;width:100%;height:auto}.sp-lb{position:absolute;top:10px;left:12px;font-size:10px;font-weight:900;letter-spacing:2px;color:#fff;background:#d32027;padding:3px 9px;border-radius:99px}
 .sp-cta{display:block;text-align:center;padding:10px;background:#d32027;color:#fff;font-weight:800;font-size:14px;letter-spacing:.5px}
 .social a.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}.social a.fb{background:#1877f2}.social a.yt{background:#ff0000}.social a.wa{background:#25d366}.social a{width:46px;height:46px;box-shadow:0 4px 10px rgba(0,0,0,.4)}
+.pd-rip{display:inline-block;margin-top:2px;font-size:9px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:#3ccf6e;color:#06210f;border-radius:99px;padding:1px 6px}
 .br-logo{position:absolute;filter:drop-shadow(0 4px 12px rgba(0,0,0,.6));pointer-events:none}
 .t-ar.misto{background:linear-gradient(135deg,#bfe3ff,#3b82c4);border-color:#e3f2ff;color:#0d2236}
 
@@ -1068,7 +1069,7 @@ const PADEL = {
  edizione:"2026",
  luogo:"Sporting Club Martina Franca",
  gallery:"https://f2x9b.emailsp.com/frontend/LandingPage.aspx?idList=1&idLP=519&guid=AAFA5375-BCF1-4E06-965A-E3A98B626156",
- master:{data:"Domenica 31 maggio 2026", risultati:{
+ master:{data:"Domenica 31 maggio 2026", sostituzioni:{m:[["Basile Ciccio","Corsi Tony","indisponibile"]]}, risultati:{
   x:{campioni:"Zaurino Gabriele / Oliva Francesca",
    qualM:[["Simeone Antonio",3,0],["Palese Mimmo",6,1],["Basile Piero",3,0],["Zaurino Gabriele",9,1],["Labbro Domenico",1,0],["Solito Domenico",6,1],["Leuci Fabio",6,1],["Semeraro Nico",2,0]],
    qualF:[["Massacri Valeria",7,1],["Oliva Francesca",8,1],["Caroli Anna",3,0],["Greco Claudia",0,0],["Castellana Graziana",6,1],["Lenoci Titti",0,0],["Ruggieri Federica",6,1],["Speciale Alessandra",6,0]],
@@ -1467,8 +1468,8 @@ function padelClassifica(c,g){
 }
 function padelMaster(k){
   k=k==="x"?"x":"m";
-  const card=(n,i,cls)=>{ const f=(typeof PFOTO!=="undefined")&&(PFOTO[k+"|"+n]||pPh(n)); return `<div class="pd-qc ${cls}"><div class="pd-qf">${f?`<img src="${f}" alt="">`:`<span class="av sil"></span>`}<span class="pd-qn">${i+1}</span></div><b>${n}</b></div>`; };
-  const grid=(L,cls)=>`<div class="pd-qg">${L.map((r,i)=>card(r[0],i,cls)).join("")}</div>`;
+  const card=(n,i,cls,r)=>{ const f=(typeof PFOTO!=="undefined")&&(PFOTO[k+"|"+n]||pPh(n)); return `<div class="pd-qc ${cls}"><div class="pd-qf">${f?`<img src="${f}" alt="">`:`<span class="av sil"></span>`}<span class="pd-qn">${i+1}</span></div><b>${n}</b>${r&&r[3]?`<small class="pd-rip">ripescato</small>`:""}</div>`; };
+  const grid=(L,cls)=>`<div class="pd-qg">${L.map((r,i)=>card(r[0],i,cls,r)).join("")}</div>`;
   const RS=(PADEL.master.risultati||{})[k];
   const masterRes=R=>`<div class="lv-gold"><div class="t-champ ${PCLS[k]}" style="--lc:#e8b923;margin-top:16px"><span class="tc-tro"><img src="${WL("gold")}" alt="WEB CUP"></span><div><small>Campioni WEB CUP ${PADEL.edizione} · Master ${PCAT[k].nome}</small><b>${R.campioni}</b>${pAv(R.campioni.split(" / ")).replace('class="pav"','class="pav big"')}</div></div></div>
     <div class="lv-gold ${PCLS[k]}">${R.turni.map(([nome,ms])=>`<div class="h1 t-round ${nome==="Finale"?"t-oro":nome==="Semifinali"?"t-cl":""}">${nome==="Match 3"?`<div class="pd-sep"></div><div style="margin-top:18px">Girone di qualificazione</div>`:""}${nome}</div><div class="t-grid">${ms.map(m=>pMatch(m,nome==="Finale",kk=>kk.split("/").map(sn=>{ const L=[...(R.qual||[]),...(R.qualM||[]),...(R.qualF||[])].map(r=>r[0]); const mm=sn.match(/^(\S+) (\S)\.$/); return L.find(x=>mm?(pSur(x)===mm[1]&&x.split(" ")[1][0]===mm[2]):pSur(x)===sn)||sn; }))).join("")}</div>`).join("")}</div>
@@ -1478,7 +1479,8 @@ function padelMaster(k){
     <div class="pd-q2" style="margin:0 10px">${[["Uomini","c-m",R.qualM],["Donne","c-f",R.qualF]].map(([t,c,L])=>`<div><div class="pd-qh ${c}">${t}</div><table class="pd-cl pd-rank pd-mq">${L.map((r,i)=>`<tr class="${r[2]?"q":""}"><td>${i+1}</td><td><b>${r[0]}</b></td><td><b>${r[1]}</b></td><td>${r[2]?"Q":""}</td></tr>`).join("")}</table></div>`).join("")}</div>`:""}
     <div class="pd-sep"></div>`;
   const reg=PADEL.regMaster[k].map(([t,l])=>`<div class="reg-b gioco"><div class="reg-t">${t}</div><ul>${l.map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
-  const body=k==="m"?`<div class="h1 t-round">Qualificati</div>${grid(PCAT.m.classifica.slice(0,16),"cat-m")}`
+  const SUB=((PADEL.master.sostituzioni||{})[k])||[]; const subQ=L=>L.map(r=>{const x=SUB.find(z=>z[0]===r[0]); return x?[x[1],r[1],r[2],x[0],x[2]]:r;});
+  const body=k==="m"?`<div class="h1 t-round">Qualificati</div>${grid(subQ(PCAT.m.classifica.slice(0,16)),"cat-m")}${SUB.length?`<div class="note" style="text-align:center">${SUB.map(z=>`${z[0]} ${z[2]}: ripescato ${z[1]} (17° in classifica).`).join(" ")}</div>`:""}`
     :`<div class="h1 t-round">Qualificati · <span class="c-m">Uomini</span></div>${grid(PCAT.x.classificaM.slice(0,8),"cat-m")}<div class="pd-sep"></div><div class="h1 t-round" style="margin-top:22px">Qualificate · <span class="c-f">Donne</span></div>${grid(PCAT.x.classificaF.slice(0,8),"cat-f")}`;
   $(`${topbar("Padel · Master Finale","go:padel")}
     <div class="premio-h"><img src="${WL("gold")}" alt="WEB CUP" style="width:110px;height:auto"></div>
