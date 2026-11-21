@@ -2130,7 +2130,7 @@ function giocatore(cat,nm){
   const ph=typeof FOTO!=="undefined"?fotoG(nm):"";
   const ORD=["webcup","mundialito","supercoppa"];
   const ent=E.slice().sort((a,b)=>a.cat.localeCompare(b.cat)||ORD.indexOf(a.comp)-ORD.indexOf(b.comp));
-  const tag=e=>{const t=[]; if(e.f.includes("C"))t.push("Capitano"); if(e.f.includes("I"))t.push("Infortunato"); if(e.f.includes("U"))t.push("Under"); if(e.f.includes("M"))t.push("Mercato"); e.f.filter(k=>k.startsWith("n:")).forEach(k=>t.push(k.slice(2))); return t.join(" · ");};
+  const tag=e=>{const t=[]; if(e.f.includes("C"))t.push("Capitano"); if(e.f.includes("U"))t.push("Under"); if(e.f.includes("M"))t.push("Mercato"); e.f.filter(k=>k.startsWith("n:")&&!/infortun/i.test(k)).forEach(k=>t.push(k.slice(2))); return t.join(" · ");};
   // trofei squadra
   const trS=[], trP=[], gol=[]; let tot=0;
   ent.forEach(e=>{ const c=DATA[e.cat+"/"+e.comp], X=COMP[e.comp], C=CAT[e.cat], y=((c.edizione||"").match(/\d{4}/)||[""])[0];
@@ -2174,7 +2174,7 @@ function tFallback(c,p,anno){ const ts=c.partite.filter(q=>q!==p&&q.fase===p.fas
 function squadraTotale(cat,s){
   s=decodeURIComponent(s); temaSquadra(s); const C=CAT[cat];
   const comps=["webcup","mundialito","supercoppa"].flatMap(b=>EDS(cat,b)).filter(k=>DATA[cat+"/"+k]&&DATA[cat+"/"+k].partite.some(p=>p.casa===s||p.ospite===s));
-  const tag={I:'<span class="tg inj" title="Infortunato">+</span>',C:'<span class="tg c">C</span>',U:'<span class="tg u">UNDER</span>',M:'<span class="tg m">MERCATO</span>'};
+  const tag={C:'<span class="tg c">C</span>',U:'<span class="tg u">UNDER</span>',M:'<span class="tg m">MERCATO</span>'};
   const gioc={}, gol={}, match=[];
   comps.forEach(k=>{ setCurSq(cat,k); const c=DATA[cat+"/"+k], RS=CUR.RS, pre=CUR.pre, anno=CUR.anno;
     (RS[s]||[]).forEach(x=>{const [nm,...f]=x.split("|"); const g=gioc[nm]||(gioc[nm]={nm,ph:"",tg:new Set(),cmp:[]});
