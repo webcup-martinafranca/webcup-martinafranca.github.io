@@ -857,7 +857,7 @@ const ROSE_MUNDIALITO_U = {
    Nota: Pallone d'Oro e Guanto d'Oro esistono dal 2025 (nel 2024 non erano previsti). */
 const STORICO = [
  {anno:"2024", cat:"over50", comp:"webcup", team:"Pizze e Delizie", pos:1,
-  rosa:["Minardi Michele","Colucci Domenico","Colucci Stefano","Capitaneo Antonio","Zaurino Nicola","Cassano Lino","Serio Andrea","Carrieri Francesco","Braccioforte Piero"]},
+  rosa:["Minardi Michele","Colucci Domenico","Colucci Stefano","Capitaneo Antonio","Zaurino Nicola","Cassano Antonio","Serio Andrea","Carrieri Francesco","Braccioforte Piero"]},
  {anno:"2025", cat:"over50", comp:"webcup", team:"Red Devils", pos:1,
   rosa:["Devito Daniele|C","Marinuzzi Gianni","Colucci Tonio","Venere Michele","Ruggieri Ernesto","Chieppa Stefano","Montinaro Giuseppe","Occhinegro Ivano","Santoro Angelo","Olivieri Donato|n:in prestito dagli Zebras","Carbotti Giuseppe","Angelini Martino"]}
 ];
@@ -946,7 +946,7 @@ PREMI_STORICI.push({anno:"2025", cat:"under", comp:"webcup", premio:"ballon", no
 
 /* Edizione 2024 (II edizione) – risultati e date dai post Instagram @webcup.martinafranca */
 DATA["over50/webcup@2024"] = {
-  edizione: "2024 · II edizione", stato: "Conclusa", rose:"ROSE_VUOTE", archivio:true, qualificate:4,
+  edizione: "2024 · II edizione", stato: "Conclusa", rose:"ROSE_VUOTE", archivio:true, marcatoriRicostruiti:true, marcatoriUfficiali:[["Lacatena Ottaviano", "Caroli Elettronica", 18], ["Conte Ezio", "Tecsam", 5], ["Indelicato Martino", "Red Devils", 4], ["Palazzo Pino", "Tecsam", 4], ["Ferri Gianni", "Tecsam", 3], ["Minardi Michele", "Pizze e Delizie", 3], ["Cassano Antonio", "Pizze e Delizie", 3], ["Venere Michele", "Red Devils", 3], ["Albanese Angelo", "Caroli Elettronica", 2], ["Marinuzzi Gianni", "Red Devils", 1], ["Zaurino Nicola", "Pizze e Delizie", 1], ["Tagliente Graziano", "La Fontanina", 1]], qualificate:4,
   squadre: ["Caroli Elettronica","Tecsam","Pizze e Delizie","Red Devils","La Fontanina"],
   podio: ["Pizze e Delizie","Caroli Elettronica","Tecsam"],
   premiArchivio: [{premio:"capocannoniere", nome:"Lacatena Ottaviano", team:"Caroli Elettronica"}],
@@ -1961,7 +1961,7 @@ function giocatore(cat,nm){
     const short=mk?mk.n:null; const ps=[];
     if(short) c.partite.filter(p=>p.gc!=null&&(p.casa===e.team||p.ospite===e.team)).forEach(p=>{ const side=p.casa===e.team?0:1; const q=parseM(p.m&&p.m[side]).find(([n])=>n===short); if(q) ps.push({p,q:q[1],vs:side?p.casa:p.ospite,res:side?`${p.go}-${p.gc}`:`${p.gc}-${p.go}`}); });
     gol.push({e,X,C,y,g,ps}); });
-  HIST.forEach(e=>{ const c=e.key&&DATA[e.key]; const r=c&&c.marcatoriUfficiali&&c.marcatoriUfficiali.find(x=>x[0]===nm&&x[1].split(" / ").includes(e.team)); if(r){ tot+=r[2]; gol.push({e,X:{...COMP[e.comp],nome:COMP[e.comp].nome+" "+e.anno},C:CAT[e.cat],y:e.anno,g:r[2],ps:[]}); } });
+  HIST.forEach(e=>{ const c=DATA[e.key||(e.cat+"/"+e.comp+"@"+e.anno)]; const r=c&&c.marcatoriUfficiali&&c.marcatoriUfficiali.find(x=>x[0]===nm&&x[1].split(" / ").includes(e.team)); if(r){ tot+=r[2]; gol.push({e,X:{...COMP[e.comp],nome:COMP[e.comp].nome+" "+e.anno},C:CAT[e.cat],y:e.anno,g:r[2],ps:[]}); } });
   HIST.forEach(e=>{ const X=COMP[e.comp], C=CAT[e.cat]; if(e.pos>=1&&e.pos<=3) trS.push({ico:trIco(e.cat,e.comp,e.pos-1,e.team,false), t:["🏆 Campione","🥈 Finalista","🥉 3° posto"][e.pos-1]+(e.f.includes("C")?" · Capitano":""), s:`${X.nome} ${e.anno} · ${C.nome} · ${e.team}`, o:e.pos-1, y:e.anno}); });
   if(typeof PREMI_STORICI!=="undefined") PREMI_STORICI.filter(p=>p.nome===nm).forEach(p=>{ const X=COMP[p.comp], C=CAT[p.cat]; const L={capocannoniere:["👟","Capocannoniere","premio-scarpa"],ballon:["","Pallone d'Oro","premio-ballon"],guanto:["","Guanto d'Oro","premio-guanto"]}[p.premio]; trP.push({emo:L[0],img:L[2]?((typeof TROFEI!=="undefined"&&TROFEI[L[2]])||""):"",t:L[1],s:`${X.nome} ${p.anno} · ${C.nome}${p.team?" · "+p.team:""}`}); });
   const anyB=ent.some(e=>{const c=DATA[e.cat+"/"+e.comp]; return (c.ballon||[]).some(r=>resolveG(r[0],[e.team],e.cat)===nm);});
