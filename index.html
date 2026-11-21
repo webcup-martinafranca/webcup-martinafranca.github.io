@@ -46,6 +46,7 @@ a{color:inherit;text-decoration:none}
 .tile.ms{position:relative}.ms-l{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:10px;font-weight:800;letter-spacing:4px;color:rgba(255,255,255,.75)}
 .rv{opacity:0;transform:translateY(26px) scale(.97);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
 .mt-loc{text-align:center;margin:-2px 0 6px;line-height:0}.mt-loc img{height:18px;opacity:1;filter:drop-shadow(0 1px 1px rgba(0,0,0,.45))}.fin-oro .mt-loc img,.fin-bronzo .mt-loc img{filter:brightness(0);opacity:1}
+.gc-dob{font-size:13px;color:var(--muted);margin:-2px 0 8px;font-weight:600}
 .tile:active{transform:scale(.98)}
 .tile img{width:100%;display:block}
 .btn{display:flex;align-items:center;justify-content:space-between;margin:10px 12px;padding:18px 18px;border-radius:14px;
@@ -991,6 +992,13 @@ DATA["over50/mundialito@2024"] = {
     {fase:"Finale 3° posto", data:"15/09 · ore 17:00", casa:"Fire Pro", ospite:"Tecsam", gc:null, go:null, vince:"ospite"},
     {fase:"Finale", data:"15/09 · ore 18:30", casa:"Red Devils", ospite:"Pizze e Delizie", gc:null, go:null, vince:"ospite"}
   ]
+};
+
+/* DATE DI NASCITA (schede giocatore) */
+const NASCITA = {
+ "Pastore Vincenzo":"01/06/1971","Papapietro Francesco":"09/11/1967","Chiarelli Domenico":"10/04/1968","Colucci Stefano":"09/01/1976",
+ "Colucci Maurizio":"21/09/1978","Minardi Michele":"07/02/1967","Zaurino Nicola":"24/01/1976","Capitaneo Antonio":"09/10/1970",
+ "Amorino Antonio":"31/03/1975","Colucci Domenico":"09/09/1971","Fragnelli Cesare":"05/10/1975","Carovigno Graziano":"14/04/1975"
 };
 
 /* IL GAZZETTINO – articoli migrati dalla landing Mailup */
@@ -1967,7 +1975,7 @@ function giocatore(cat,nm){
   const anyB=ent.some(e=>{const c=DATA[e.cat+"/"+e.comp]; return (c.ballon||[]).some(r=>resolveG(r[0],[e.team],e.cat)===nm);});
   const punti=[]; ent.forEach(e=>{const c=DATA[e.cat+"/"+e.comp]; [["ballon","Pallone d'Oro"],["guanto","Guanto d'Oro"]].forEach(([k,l])=>{ (c[k]||[]).forEach((r,i)=>{ if(resolveG(r[0],[e.team],e.cat)===nm) punti.push(`${l} ${COMP[e.comp].nome} ${CAT[e.cat].nome}: ${i+1}° posto · ${r[1]} pt`); }); }); });
   $(`${topbar(nm,"go:calcio/"+cat)}
-    <div class="gc-hero">${ph?`<img class="gc-ph" src="${ph}" alt="">`:`<span class="gc-ph sil"></span>`}<div class="h1" style="margin:12px 0 4px">${nm}</div>
+    <div class="gc-hero">${ph?`<img class="gc-ph" src="${ph}" alt="">`:`<span class="gc-ph sil"></span>`}<div class="h1" style="margin:12px 0 4px">${nm}</div>${(typeof NASCITA!=="undefined"&&NASCITA[nm])?(d=>{const [g,m,a]=d.split("/").map(Number),t=new Date(); let e=t.getFullYear()-a; if(t.getMonth()+1<m||(t.getMonth()+1===m&&t.getDate()<g)) e--; return `<div class="gc-dob">🎂 ${d} · ${e} anni</div>`;})(NASCITA[nm]):""}
       <div class="gc-teams">${[...new Map(ent.concat(HIST.filter(h=>!ent.some(e=>e.cat===h.cat&&e.team===h.team))).map(e=>[e.cat+e.team,e])).values()].map(e=>{const live=DATA[e.cat+"/"+e.comp]&&sqDi(DATA[e.cat+"/"+e.comp]).includes(e.team); const inner=`${logo(e.team,"mini")}${e.team}<small class="${CAT[e.cat].cls}">${CAT[e.cat].nome}${e.storico?" "+e.anno:""}</small>`; return live?`<a class="gc-team" href="#" data-go="calcio/${e.cat}/${e.comp}/squadra/${encodeURIComponent(e.team)}">${inner}</a>`:`<span class="gc-team">${inner}</span>`;}).join("")}</div></div>
     <div class="sq-stats"><div class="st"><b>${tot}</b><small>Goal totali</small></div><div class="st"><b>${trS.filter(t=>t.o===0).length}</b><small>Titoli</small></div><div class="st"><b>${trP.length}</b><small>Premi personali</small></div></div>
     <div class="h1">Trofei</div>
