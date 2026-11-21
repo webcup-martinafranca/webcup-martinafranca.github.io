@@ -47,6 +47,7 @@ a{color:inherit;text-decoration:none}
 .rv{opacity:0;transform:translateY(26px) scale(.97);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
 .mt-loc{text-align:center;margin:-2px 0 6px;line-height:0}.mt-loc img{height:18px;opacity:1;filter:drop-shadow(0 1px 1px rgba(0,0,0,.45))}.fin-oro .mt-loc img,.fin-bronzo .mt-loc img{filter:brightness(0);opacity:1}
 .gc-dob{font-size:13px;color:var(--muted);margin:-2px 0 8px;font-weight:600}
+.priv{text-align:center;margin:14px 0 6px}.priv a{font-size:11px;color:var(--muted);text-decoration:underline;opacity:.8}
 .tile:active{transform:scale(.98)}
 .tile img{width:100%;display:block}
 .btn{display:flex;align-items:center;justify-content:space-between;margin:10px 12px;padding:18px 18px;border-radius:14px;
@@ -1624,6 +1625,7 @@ function home(){
   <div class="shops-t">I NOSTRI STORE a MARTINA FRANCA:</div><div class="shops">${[["tnt","https://www.tntshop.it/it/","TNT"],["web","https://www.webmasculinestore.com/it/","WEB"],["glam","https://www.indigoshop.it/it/page/9-pure-glam-boutique.html","pure Glam"],["33","https://www.33sneakers.com/it/","33sneakers"]].map(([k,u,n])=>`<a class="shop" href="${u}" target="_blank" rel="noopener"><img src="${SPONSOR["shop-"+k]}" alt="${n}"><span>Visita il sito ›</span></a>`).join("")}</div>
   <a class="tile" href="https://www.indigoshop.it/it/" target="_blank" rel="noopener"><img src="${SPONSOR["indigo-big"]}" alt="inDigo"></a>
   <div class="sp-btns"><a href="#" data-go="sponsor/biz" class="sp-btn">BUSINESS SPONSOR <i>›</i></a><a href="#" data-go="sponsor/loc" class="sp-btn loc">LOCAL SPONSOR <i>›</i></a></div>
+  <div class="priv"><a href="http://5ee.us/plMAkY" target="_blank" rel="noopener">Informativa sulla Privacy</a></div>
   <div class="dev" style="display:none"><b>Prototipo.</b> <b>Calcio</b>, <b>Tennis</b> e <b>Padel</b> migrati: WEB CUP, Mundialito e WEB SUPER CUP con risultati, classifiche e marcatori calcolati in automatico. Le Iscrizioni aprono ancora la pagina Mailup attuale.</div>
   <div class="social">
     <a class="ig" href="https://www.instagram.com/webcup2024/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="#fff" stroke="none"/></svg></a><a class="fb" href="https://www.facebook.com/profile.php?id=61556100426427" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#fff" d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21z"/></svg></a>
