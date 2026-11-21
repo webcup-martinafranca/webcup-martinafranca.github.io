@@ -1862,7 +1862,7 @@ function articolo(cat,id){
 
 const SCUDO=(typeof TROFEI!=="undefined"&&TROFEI["scudetto"])||"";
 const trIco=(cat,comp,pi,team,live)=>{ const b=cb(comp), M=typeof MEDALI!=="undefined"?MEDALI:{};
-  if(pi===0) return b==="webcup"?(live&&inCarica(cat,team)?SCUDO:TROFEO_S("webcup",cat)):stendardo(cat,comp);
+  if(pi===0) return b==="webcup"?TROFEO_S("webcup",cat):stendardo(cat,comp);
   const k=["silver","bronze"][pi-1]; return b==="mundialito"?(M["m-"+k]||M[k]):M[k]; };
 const stendardo=(cat,comp)=>cb(comp)==="webcup"?SCUDO:(TROFEO(comp,cat)||"");
 /* colori sociali: p=colore card, b=sfondo, a=accento titoli, t=testo sulle card */
