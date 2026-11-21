@@ -1913,6 +1913,9 @@ function tabStatComp(cat,s,comp){
 }
 const c0anno=cat=>((DATA[cat+"/webcup"]||{}).edizione||"").match(/\d{4}/)?.[0]||"";
 const mkMatch=(full,short)=>{ const f=full.toLowerCase().split(/\s+/), sh=short.toLowerCase().replace(/\./g,"").split(/\s+/); return f[0]===sh[0] && (!sh[1] || (f[1]||"").startsWith(sh[1])); };
+function marcatoriTutti(c){ const U=(c.marcatoriUfficiali||[]).map(r=>r.slice()); if(c.marcatoriRicostruiti) return U;
+  marcatori(c).forEach(r=>{ if(U.some(u=>u[1].split(" / ").some(t=>r.sq.includes(t))&&mkMatch(u[0],r.n))) return; U.push([ALIAS_G[r.n]||nomeIntero(r.n,r.sq[0],CUR.cat||"over50"),r.sq.join(" / "),r.g]); });
+  return U.sort((a,b)=>b[2]-a[2]||a[0].localeCompare(b[0])); }
 function mkSquadra(c,s){ // marcatori calcolati dalle partite, con i totali ufficiali (se presenti) che prevalgono
   const L=marcatori(c).filter(r=>r.sq.includes(s)).map(r=>({n:r.n,sq:r.sq,g:r.g}));
   (c.marcatoriUfficiali||[]).filter(r=>r[1].split(" / ").includes(s)).forEach(([full,cl,g])=>{ const m=L.find(r=>mkMatch(full,r.n)); if(m){m.g=g;m.full=full;} else L.push({n:full,sq:cl.split(" / "),g,full}); });
@@ -1920,7 +1923,7 @@ function mkSquadra(c,s){ // marcatori calcolati dalle partite, con i totali uffi
 function nomeIntero(short,s,cat){ const nomi=new Set(); ["webcup","mundialito","supercoppa"].forEach(k=>{const c=DATA[cat+"/"+k]; if(!c) return; const RS=c.rose?eval(c.rose):ROSE; (RS[s]||[]).forEach(x=>nomi.add(x.split("|")[0]));});
   const m=[...nomi].filter(n=>mkMatch(n,short)); return m.length===1?m[0]:short; }
 /* ============ GIOCATORI ============ */
-const ALIAS_G={"Palese Mimmo":"Palese Cosimo","Colucci F. Cosimo":"Colucci Cosimo Fortunato"};
+const ALIAS_G={"D'Amico":"Damico Nicolas","Palese Mimmo":"Palese Cosimo","Colucci F. Cosimo":"Colucci Cosimo Fortunato"};
 let _PL=null;
 function PLidx(){ if(_PL) return _PL; _PL={};
   const ARC=[];
@@ -2085,8 +2088,8 @@ function competizione(cat,comp,tab){
     let pos=0,prev=null;
     body=`<div class="premio-h">${(typeof TROFEI!=="undefined"&&TROFEI["premio-scarpa"])?`<img src="${TROFEI["premio-scarpa"]}" alt="">`:""}<div class="h1">Capocannoniere</div></div>${pill}
     <div class="tbl"><table><tr><th>#</th><th style="text-align:left">Giocatore (Club)</th><th>Goal</th></tr>
-    ${c.marcatoriUfficiali.map((r,i)=>{ if(r[2]!==prev){pos=i+1;prev=r[2];} return `<tr class="${i===0?"top1":""}"><td class="pos">${pos}</td><td class="n"><div class="pc"${GL(r[0],r[1].split(" / "))}>${avatar(r[0],r[1].split(" / "))}<span>${r[0]} <span class="club">(${r[1]})</span></span></div></td><td class="pts">${r[2]}</td></tr>`;}).join("")}
-    </table></div><div class="note">${c.marcatoriRicostruiti?"Classifica ricostruita dagli articoli del Giornale: dati parziali.":"Classifica marcatori ufficiale dell'edizione."}</div>`;
+    ${marcatoriTutti(c).map((r,i)=>{ if(r[2]!==prev){pos=i+1;prev=r[2];} return `<tr class="${i===0?"top1":""}"><td class="pos">${pos}</td><td class="n"><div class="pc"${GL(r[0],r[1].split(" / "))}>${avatar(r[0],r[1].split(" / "))}<span>${r[0]} <span class="club">(${r[1]})</span></span></div></td><td class="pts">${r[2]}</td></tr>`;}).join("")}
+    </table></div><div class="note">${c.marcatoriRicostruiti?"Classifica ricostruita dagli articoli del Giornale: dati parziali.":"Classifica marcatori ufficiale, completata con tutti i marcatori dei tabellini."}</div>`;
   } else if(tab==="marcatori"){
     body=`<div class="premio-h">${(typeof TROFEI!=="undefined"&&TROFEI["premio-scarpa"])?`<img src="${TROFEI["premio-scarpa"]}" alt="">`:""}<div class="h1">Capocannoniere</div></div>${pill}
     <div class="tbl"><table><tr><th>#</th><th style="text-align:left">Giocatore (Club)</th><th>Goal</th></tr>
