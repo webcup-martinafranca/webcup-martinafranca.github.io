@@ -1330,12 +1330,13 @@ const LIV={gold:{nome:"GOLD",c:"#e8b923"},silver:{nome:"SILVER",c:"#c0c6cc"},bro
 const tnome=n=>(TENNIS.nomiCompleti[n]||n);
 const WL=liv=>(typeof WLOGO!=="undefined"&&(WLOGO[liv]||WLOGO.gold))||"";
 const tTrophy=liv=>`<span class="t-tro"><img src="${WL(liv)}" alt="WEB CUP"></span>`;
-function tennis(){
-  $(`${topbar("Tennis","go:")}
+function tennis(y){ const ED=TENNIS.edizione; y=y||ED; const cur=y===ED, AR=TENNIS.archivio[y]||[];
+  const levs=k=>cur?["gold","silver","bronze"].filter(l=>TENNIS.tabelloni[k+"-"+l]):["gold","silver","bronze"].filter(l=>AR.some(t=>t.liv===l&&(k==="f")===/^Femminile/.test(t.nome)));
+  $(`${topbar(cur?"Tennis":"Tennis · "+y,"go:")}
     <div class="ball-hero"><span class="ball-b">🎾</span><span class="ball-sh"></span></div>
-    <div class="h1">Tennis</div><div class="pill ten">WEB CUP ${TENNIS.edizione} · ${TENNIS.stato}</div>
-    <div class="ed-sel"><span>Edizione</span><a class="on" href="#" data-go="tennis">${TENNIS.edizione}</a>${Object.keys(TENNIS.archivio).sort((a,b)=>b-a).map(y=>`<a href="#" data-go="tennis/anno/${y}">${y}</a>`).join("")}<a class="alb-btn" href="#" data-go="tennis/albo">🏆 Albo d'oro</a></div>
-    ${Object.entries(TCAT).map(([k,c])=>{ const sil=SPONSOR[k==="m"?"sil-ten":"sil-tf"]; const lv=["gold","silver","bronze"].filter(l=>TENNIS.tabelloni[k+"-"+l]); return `<a class="sbn" href="#" data-go="tennis/${k}" style="background-image:url(${SPONSOR["bn-ten"]})"><span class="sbn-b"><span class="sbn-s" style="-webkit-mask-image:url(${sil});mask-image:url(${sil})"></span></span><span class="sbn-t"><b>${c.nome.toUpperCase()}</b><small>Tabelloni e Risultati</small><span class="sbn-lv">${lv.map(l=>`<i style="background:${LIV[l].c}">${LIV[l].nome}</i>`).join("")}</span></span></a>`; }).join("")}
+    <div class="h1">Tennis</div><div class="pill ten">WEB CUP ${y} · ${cur?TENNIS.stato:"Conclusa"}</div>
+    <div class="ed-sel"><span>Edizione</span><a ${cur?'class="on"':""} href="#" data-go="tennis">${ED}</a>${Object.keys(TENNIS.archivio).sort((a,b)=>b-a).map(a=>`<a ${a===y?'class="on"':""} href="#" data-go="tennis/anno/${a}">${a}</a>`).join("")}<a class="alb-btn" href="#" data-go="tennis/albo">🏆 Albo d'oro</a></div>
+    ${Object.entries(TCAT).filter(([k])=>levs(k).length).map(([k,c])=>{ const sil=SPONSOR[k==="m"?"sil-ten":"sil-tf"]; const lv=levs(k); return `<a class="sbn" href="#" data-go="${cur?"tennis/"+k:"tennis/anno/"+y+"/"+k}" style="background-image:url(${SPONSOR["bn-ten"]})"><span class="sbn-b"><span class="sbn-s" style="-webkit-mask-image:url(${sil});mask-image:url(${sil})"></span></span><span class="sbn-t"><b>${c.nome.toUpperCase()}</b><small>Tabelloni e Risultati</small><span class="sbn-lv">${lv.map(l=>`<i style="background:${LIV[l].c}">${LIV[l].nome}</i>`).join("")}</span></span></a>`; }).join("")}
     <div class="sez-t">Area torneo</div>
     <a class="sez ten" href="#" data-go="tennis/oop"><div class="sez-i"><span class="reg-ic">🗓️</span></div><div class="comp-txt"><div class="comp-n">ORDER OF PLAY</div><div class="comp-s">Programma delle partite</div></div><div class="arr">›</div></a>
     <a class="sez ten" href="#" data-go="tennis/albo"><div class="sez-i"><span class="reg-ic">🏆</span></div><div class="comp-txt"><div class="comp-n">ALBO D'ORO</div><div class="comp-s">I campioni di ogni tabellone</div></div><div class="arr">›</div></a>
@@ -1363,16 +1364,20 @@ function tennisTab(id){
     <div class="cat-${t.cat}">${t.turni.map(([nome,ms])=>`<div class="h1 t-round ${nome==="Finale"?"t-oro":nome==="Semifinali"?"t-cl":""}">${nome}</div><div class="t-grid">${ms.map(m=>tMatch(m,nome==="Finale")).join("")}</div>`).join("")}</div>
     </div><div class="note">Tabellone a eliminazione diretta. Nelle fasi finali i nomi sono con nome e cognome. Dove il punteggio non è disponibile la partita è riportata senza risultato.</div>`);
 }
-function tennisAnno(y){
-  const L0=TENNIS.archivio[y];
-  $(`${topbar("Tennis · "+y,"go:tennis")}
-    <div class="ball-hero"><span class="ball-b">🎾</span><span class="ball-sh"></span></div>
-    <div class="h1">Tennis</div><div class="pill ten">WEB CUP ${y} · Conclusa</div>
-    <div class="ed-sel"><span>Edizione</span><a href="#" data-go="tennis">${TENNIS.edizione}</a>${Object.keys(TENNIS.archivio).sort((a,b)=>b-a).map(a=>`<a ${a===y?'class="on"':""} href="#" data-go="tennis/anno/${a}">${a}</a>`).join("")}<a class="alb-btn" href="#" data-go="tennis/albo">🏆 Albo d'oro</a></div>
-    ${L0.map(t=>{ const L=LIV[t.liv]; return `<div class="lv-${t.liv}"><div class="t-head" style="--lc:${L.c}"><div class="t-liv">${L.nome}</div><div class="h1" style="margin:4px 0">${MF(t.nome.split(" · ")[0])}</div></div>
+function tennisAnno(y,k,liv){
+  if(!k) return tennis(y);
+  const C=TCAT[k], isF=k==="f"; const L0=TENNIS.archivio[y].filter(t=>isF===/^Femminile/.test(t.nome));
+  if(!liv){ const sil=SPONSOR[isF?"sil-tf":"sil-ten"];
+    return $(`${topbar("Tennis · "+C.nome+" · "+y,"go:tennis/anno/"+y)}
+    <div class="h1">${MF(C.nome)}</div><div class="pill ten">WEB CUP ${y} · Scegli il tabellone</div>
+    ${L0.map(t=>`<a class="sbn" href="#" data-go="tennis/anno/${y}/${k}/${t.liv}" style="background-image:url(${SPONSOR["bn-ten"]})"><span class="sbn-b sbn-lvb" style="--lc:${LIV[t.liv].c}"><span class="sbn-s" style="-webkit-mask-image:url(${sil});mask-image:url(${sil})"></span><span class="sbn-md lv-${t.liv}">${LIV[t.liv].nome}</span></span><span class="sbn-t"><b>${C.nome.toUpperCase()}</b><span class="sbn-lv"><i class="lv-${t.liv}">${LIV[t.liv].nome}</i></span></span></a>
+      <div class="t-champ-mini">${tTrophy(t.liv)} Campione ${y}: <b>${t.w}</b></div>`).join("")}`); }
+  const t=L0.find(x=>x.liv===liv); if(!t) return tennis(y);
+  $(`${topbar("Tennis · "+C.nome+" "+LIV[liv].nome+" · "+y,"go:tennis/anno/"+y+"/"+k)}
+    ${(t=>{ const L=LIV[t.liv]; return `<div class="lv-${t.liv}"><div class="t-head" style="--lc:${L.c}"><div class="t-liv">${L.nome}</div><div class="h1" style="margin:4px 0">${MF(t.nome.split(" · ")[0])}</div></div>
       <div class="t-champ cat-${/^Femminile/.test(t.nome)?"f":"m"}" style="--lc:${L.c}"><span class="tc-tro"><img src="${WL(t.liv)}" alt="WEB CUP"></span><div><small>WEB CUP Champion ${y}</small><b>${t.w}</b></div></div>
-      ${t.a&&t.b?`<div class="h1 t-round t-oro">Finale${t.data?` <small style="font-size:12px;opacity:.75">· ${t.data}</small>`:""}</div><div class="cat-${/^Femminile/.test(t.nome)?"f":"m"}"><div class="t-grid" style="grid-template-columns:1fr">${tMatch([t.a,t.b,t.w,t.s||""],true)}</div></div>`:""}</div>`; }).join("")}
-    <div class="note">Edizione d'archivio: sono riportati i vincitori di ogni tabellone.</div>`);
+      ${t.a&&t.b?`<div class="h1 t-round t-oro">Finale${t.data?` <small style="font-size:12px;opacity:.75">· ${t.data}</small>`:""}</div><div class="cat-${/^Femminile/.test(t.nome)?"f":"m"}"><div class="t-grid" style="grid-template-columns:1fr">${tMatch([t.a,t.b,t.w,t.s||""],true)}</div></div>`:""}</div>`; })(t)}
+    <div class="note">Edizione d'archivio: sono riportati il vincitore${t.a&&t.b?" e la finale":""} del tabellone.</div>`);
 }
 function tennisVista(id){
   const t=TENNIS.tabelloni[id];
@@ -2130,7 +2135,7 @@ function go(path){
   if(p[0]==="calcio") return calcio();
   if(p[0]==="tennis" && p[1]==="tab" && TENNIS.tabelloni[p[2]]) return tennisTab(p[2]);
   if(p[0]==="tennis" && p[1]==="vista" && TENNIS.tabelloni[p[2]]) return tennisVista(p[2]);
-  if(p[0]==="tennis" && p[1]==="anno" && TENNIS.archivio[p[2]]) return tennisAnno(p[2]);
+  if(p[0]==="tennis" && p[1]==="anno" && TENNIS.archivio[p[2]]) return tennisAnno(p[2],TCAT[p[3]]?p[3]:null,p[4]);
   if(p[0]==="iscrizioni") return iscrizioni();
   if(p[0]==="sponsor") return sponsorPage(p[1]);
   if(p[0]==="padel"){
