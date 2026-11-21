@@ -889,7 +889,7 @@ const ROSE_2025_U = {
 };
 
 DATA["over50/webcup@2025"] = {
-  edizione: "2025 · III edizione", stato: "Conclusa", rose:"ROSE_2025_O50", fotoPre:"25:", archivio:true, qualificate:4,
+  edizione: "2025 · III edizione", stato: "Conclusa", rose:"ROSE_2025_O50", fotoPre:"25:", marcatoriRicostruiti:true, marcatoriUfficiali:[["Chieppa Stefano", "Red Devils", 22], ["Serio Andrea", "Il Palmento", 16], ["Caramia Pino", "Zebras", 16], ["Conte Ezio", "Tecsam", 11], ["Lacatena Ottaviano", "Caroli Elettronica", 10], ["Palese Mimmo", "Caroli Elettronica", 8], ["Tagliente Graziano", "Levaphone", 8], ["Braccioforte Piero", "Il Palmento", 5], ["Santoro Angelo", "Red Devils", 4], ["Devito Daniele", "Red Devils", 4], ["Bello Piero", "Zebras", 4], ["Buonfrate Fabrizio", "Caroli Elettronica", 4], ["Albanese Angelo", "Caroli Elettronica", 4], ["Carovigno Graziano", "Tecsam", 4], ["Colucci Maurizio", "Il Palmento", 3], ["Fragnelli Cesare", "Tecsam", 3], ["Marangi Antonio", "Caroli Elettronica", 3], ["Chiarelli Domenico", "Il Palmento", 3]], archivio:true, qualificate:4,
   squadre: ["Il Palmento","Caroli Elettronica","Tecsam","Red Devils","Zebras","Levaphone"],
   podio: ["Red Devils","Caroli Elettronica","Tecsam"],
   premiArchivio: [{premio:"ballon", nome:"Vinci Leo", team:"Caroli Elettronica"},{premio:"capocannoniere", nome:"Chieppa Stefano", team:"Red Devils"}],
@@ -916,7 +916,7 @@ DATA["over50/webcup@2025"] = {
   ]
 };
 DATA["under/webcup@2025"] = {
-  edizione: "2025 · I edizione", stato: "Conclusa", rose:"ROSE_2025_U", fotoPre:"25:", archivio:true, qualificate:4,
+  edizione: "2025 · I edizione", stato: "Conclusa", rose:"ROSE_2025_U", fotoPre:"25:", marcatoriRicostruiti:true, marcatoriUfficiali:[["Salamina Francesco", "Il Piccolo Principe", 10], ["Marangi Domenico", "Il Piccolo Principe", 7], ["Palmisano Angelo", "HG Five", 7], ["D'Onghia Orazio", "HG Five", 7], ["Cervellera Michele", "HG Five", 7], ["Martucci Giuseppe", "HG Five", 6], ["Salamina Donatello", "Il Piccolo Principe", 6], ["Colucci Antonio", "SS Annunziata", 5], ["D'Onghia Antonio", "SS Annunziata", 5], ["Basile William", "Cibandoreventi", 4], ["Caroli Piero", "DCF Ziwoondello", 4], ["Grottini Francesco", "Cibandoreventi", 4], ["Serra Walter", "DCF Ziwoondello", 4], ["Cristofaro Alessandro", "SS Annunziata", 4], ["Carovigno Graziano", "Team Gialloblu", 4], ["Colucci Maurizio", "Team Gialloblu", 3], ["Ancona Francesco", "Team Gialloblu", 3], ["Carrieri Davide", "SS Annunziata", 3]], archivio:true, qualificate:4,
   squadre: ["HG Five","Il Piccolo Principe","SS Annunziata","DCF Ziwoondello","Cibandoreventi","Team Gialloblu"],
   podio: ["HG Five","Il Piccolo Principe","SS Annunziata"],
   premiArchivio: [{premio:"ballon", nome:"Marangi Domenico", team:"Il Piccolo Principe"},{premio:"capocannoniere", nome:"Salamina Francesco", team:"Il Piccolo Principe"}],
@@ -1958,6 +1958,7 @@ function giocatore(cat,nm){
     const short=mk?mk.n:null; const ps=[];
     if(short) c.partite.filter(p=>p.gc!=null&&(p.casa===e.team||p.ospite===e.team)).forEach(p=>{ const side=p.casa===e.team?0:1; const q=parseM(p.m&&p.m[side]).find(([n])=>n===short); if(q) ps.push({p,q:q[1],vs:side?p.casa:p.ospite,res:side?`${p.go}-${p.gc}`:`${p.gc}-${p.go}`}); });
     gol.push({e,X,C,y,g,ps}); });
+  HIST.forEach(e=>{ const c=e.key&&DATA[e.key]; const r=c&&c.marcatoriUfficiali&&c.marcatoriUfficiali.find(x=>x[0]===nm&&x[1].split(" / ").includes(e.team)); if(r){ tot+=r[2]; gol.push({e,X:{...COMP[e.comp],nome:COMP[e.comp].nome+" "+e.anno},C:CAT[e.cat],y:e.anno,g:r[2],ps:[]}); } });
   HIST.forEach(e=>{ const X=COMP[e.comp], C=CAT[e.cat]; if(e.pos>=1&&e.pos<=3) trS.push({ico:trIco(e.cat,e.comp,e.pos-1,e.team,false), t:["🏆 Campione","🥈 Finalista","🥉 3° posto"][e.pos-1]+(e.f.includes("C")?" · Capitano":""), s:`${X.nome} ${e.anno} · ${C.nome} · ${e.team}`, o:e.pos-1, y:e.anno}); });
   if(typeof PREMI_STORICI!=="undefined") PREMI_STORICI.filter(p=>p.nome===nm).forEach(p=>{ const X=COMP[p.comp], C=CAT[p.cat]; const L={capocannoniere:["👟","Capocannoniere","premio-scarpa"],ballon:["","Pallone d'Oro","premio-ballon"],guanto:["","Guanto d'Oro","premio-guanto"]}[p.premio]; trP.push({emo:L[0],img:L[2]?((typeof TROFEI!=="undefined"&&TROFEI[L[2]])||""):"",t:L[1],s:`${X.nome} ${p.anno} · ${C.nome}${p.team?" · "+p.team:""}`}); });
   const anyB=ent.some(e=>{const c=DATA[e.cat+"/"+e.comp]; return (c.ballon||[]).some(r=>resolveG(r[0],[e.team],e.cat)===nm);});
@@ -2055,7 +2056,7 @@ function competizione(cat,comp,tab){
   const pill=`<div class="pill ${C.cls}">${X.nome} · ${C.nome}</div>`;
   const T=[["risultati","Risultati"]];
   if(hasGirone(c)) T.push(["classifica","Girone"]);
-  if(giocate(c).length && !c.archivio) T.push(["marcatori","Marcatori"]);
+  if((giocate(c).length && !c.archivio)||c.marcatoriUfficiali) T.push(["marcatori","Marcatori"]);
   if(c.ballon||c.guanto||c.premiArchivio) T.push(["premi","Premi"]);
   const sqList=c.gironi?Object.values(c.gironi).flat():(c.squadre||[]);
   if(sqList.some(s=>RS[s])) T.push(["squadre","Squadre"]);
@@ -2085,7 +2086,7 @@ function competizione(cat,comp,tab){
     body=`<div class="premio-h">${(typeof TROFEI!=="undefined"&&TROFEI["premio-scarpa"])?`<img src="${TROFEI["premio-scarpa"]}" alt="">`:""}<div class="h1">Capocannoniere</div></div>${pill}
     <div class="tbl"><table><tr><th>#</th><th style="text-align:left">Giocatore (Club)</th><th>Goal</th></tr>
     ${c.marcatoriUfficiali.map((r,i)=>{ if(r[2]!==prev){pos=i+1;prev=r[2];} return `<tr class="${i===0?"top1":""}"><td class="pos">${pos}</td><td class="n"><div class="pc"${GL(r[0],r[1].split(" / "))}>${avatar(r[0],r[1].split(" / "))}<span>${r[0]} <span class="club">(${r[1]})</span></span></div></td><td class="pts">${r[2]}</td></tr>`;}).join("")}
-    </table></div><div class="note">Classifica marcatori ufficiale dell'edizione.</div>`;
+    </table></div><div class="note">${c.marcatoriRicostruiti?"Classifica ricostruita dagli articoli del Giornale: dati parziali.":"Classifica marcatori ufficiale dell'edizione."}</div>`;
   } else if(tab==="marcatori"){
     body=`<div class="premio-h">${(typeof TROFEI!=="undefined"&&TROFEI["premio-scarpa"])?`<img src="${TROFEI["premio-scarpa"]}" alt="">`:""}<div class="h1">Capocannoniere</div></div>${pill}
     <div class="tbl"><table><tr><th>#</th><th style="text-align:left">Giocatore (Club)</th><th>Goal</th></tr>
