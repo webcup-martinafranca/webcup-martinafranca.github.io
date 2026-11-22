@@ -2358,9 +2358,24 @@ function go(path){
 }
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
+/* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
+const BUILD="20261122125655";
+function checkUpd(){
+  if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
+  const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
+  return fetch("version.txt?t="+Date.now(),{cache:"no-store",signal:ctl&&ctl.signal}).then(r=>r.ok?r.text():"").then(v=>{clearTimeout(tm);v=(v||"").trim();
+    if(!v||v===BUILD) return null; let tried=null; try{tried=sessionStorage.getItem("wcv");}catch(_){}
+    return tried===v?null:v;}).catch(()=>{clearTimeout(tm);return null;});
+}
+function reloadTo(v,path){ try{sessionStorage.setItem("wcv",v);}catch(_){} location.replace(location.pathname+"?v="+v+"#/"+path); }
+document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") checkUpd().then(v=>{ if(v) reloadTo(v,CURP); }); });
 document.addEventListener("click",e=>{
   const a=e.target.closest("[data-go]"); if(!a) return;
-  e.preventDefault(); const path=a.getAttribute("data-go");
+  e.preventDefault(); const path0=a.getAttribute("data-go");
+  checkUpd().then(v=>{ if(!v) return; let dest=path0;
+    if(a.classList.contains("back")&&NAV.length) dest=NAV[NAV.length-1].p; else if(a.classList.contains("home")) dest="";
+    reloadTo(v,dest); });
+  const path=path0;
   if(a.classList.contains("back") && NAV.length){ const pr=NAV.pop(); navTo(pr.p,pr.y); requestAnimationFrame(()=>window.scrollTo(0,pr.y)); return; }
   if(a.classList.contains("back")){ navTo(path,0); return; }
   if(a.classList.contains("home")){ NAV.length=0; navTo("",0); return; }
