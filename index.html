@@ -2113,6 +2113,10 @@ function galInfo(a,cat){ const c=DATA[cat+"/"+a.comp]||{}, p=galMatch(a,cat), y=
 function galleria(cat,id){
   const C=CAT[cat];
   $(`${topbar("Photo gallery · "+C.nome,id?"go:calcio/"+cat+"/foto":"go:calcio/"+cat+"/media")}<div class="gal-load">Caricamento foto…</div>`);
+  if(!/webcup-martinafranca\.github\.io$|^localhost$/.test(location.hostname)){
+    $(`${topbar("Photo gallery · "+C.nome,"go:calcio/"+cat+"/media")}<div class="h1">Photo gallery</div><div class="pill ${C.cls}">Calcio · ${C.nome}</div>
+    <div class="note" style="text-align:center;margin:24px 20px">In questa anteprima le foto non si possono caricare.<br>Aprile sul sito WEB CUP:</div>
+    <a class="mb" href="https://webcup-martinafranca.github.io/#/calcio/${cat}/foto${id?"/"+id:""}" target="_blank" rel="noopener"><span class="mi">${ICO.cam}</span><span class="mt"><b>Apri la Photo gallery</b><small>webcup-martinafranca.github.io</small></span><span class="arr">›</span></a>`); return; }
   galLoad().then(G=>{
     const A=G.albums.filter(a=>a.cat===cat);
     if(id){ const a=A.find(x=>x.id===id); if(!a) return galleria(cat);
@@ -2492,7 +2496,7 @@ function go(path){
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261122185208";
+const BUILD="20261122190027";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
