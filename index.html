@@ -2116,7 +2116,7 @@ function galleria(cat,id){
   if(!/webcup-martinafranca\.github\.io$|^localhost$/.test(location.hostname)){
     $(`${topbar("Photo gallery · "+C.nome,"go:calcio/"+cat+"/media")}<div class="h1">Photo gallery</div><div class="pill ${C.cls}">Calcio · ${C.nome}</div>
     <div class="note" style="text-align:center;margin:24px 20px">In questa anteprima le foto non si possono caricare.<br>Aprile sul sito WEB CUP:</div>
-    <a class="mb" href="https://webcup-martinafranca.github.io/#/calcio/${cat}/foto${id?"/"+id:""}" target="_blank" rel="noopener"><span class="mi">${ICO.cam}</span><span class="mt"><b>Apri la Photo gallery</b><small>webcup-martinafranca.github.io</small></span><span class="arr">›</span></a>`); return; }
+    <a class="mb" href="https://webcup-martinafranca.github.io/#/calcio/${cat}/foto${id?"/"+id:""}" target="_blank" rel="noopener"><span class="mi">${ICO.cam}</span><span class="mt"><b>Apri la Photo gallery</b><small>Tutte le foto del torneo</small></span><span class="arr">›</span></a>`); return; }
   galLoad().then(G=>{
     const A=G.albums.filter(a=>a.cat===cat);
     if(id){ const a=A.find(x=>x.id===id); if(!a) return galleria(cat);
@@ -2141,7 +2141,7 @@ function galSport(sp,id){
   if(!/webcup-martinafranca\.github\.io$|^localhost$/.test(location.hostname)){
     $(`${topbar("Photo gallery · "+nome,back)}<div class="h1">Photo gallery</div><div class="pill ${cls}">${nome}</div>
     <div class="note" style="text-align:center;margin:24px 20px">In questa anteprima le foto non si possono caricare.<br>Aprile sul sito WEB CUP:</div>
-    <a class="mb" href="https://webcup-martinafranca.github.io/#/${sp}/foto${id?"/"+id:""}" target="_blank" rel="noopener"><span class="mi">${ICO.cam}</span><span class="mt"><b>Apri la Photo gallery</b><small>webcup-martinafranca.github.io</small></span><span class="arr">›</span></a>`); return; }
+    <a class="mb" href="https://webcup-martinafranca.github.io/#/${sp}/foto${id?"/"+id:""}" target="_blank" rel="noopener"><span class="mi">${ICO.cam}</span><span class="mt"><b>Apri la Photo gallery</b><small>Tutte le foto del torneo</small></span><span class="arr">›</span></a>`); return; }
   $(`${topbar("Photo gallery · "+nome,back)}<div class="gal-load">Caricamento foto…</div>`);
   galLoad().then(G=>{
     const A=G.albums.filter(a=>a.sport===sp).sort((x,y)=>y.ord-x.ord);
@@ -2517,7 +2517,7 @@ function go(path){
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261122192307";
+const BUILD="20261122192559";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
