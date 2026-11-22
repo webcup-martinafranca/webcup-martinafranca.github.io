@@ -2090,10 +2090,12 @@ const MESI=["GEN","FEB","MAR","APR","MAG","GIU","LUG","AGO","SET","OTT","NOV","D
 const gzData = a => { const m=(a.data||"").split("/"); return m.length===3?{g:m[0],m:MESI[+m[1]-1],y:m[2]}:{g:"–",m:"",y:a.anno}; };
 
 /* ============ PHOTO GALLERY interna (foto su /gallery del sito) ============ */
-const GAL_BASE=/webcup-martinafranca\.github\.io$|^localhost$/.test(location.hostname)?"gallery/":"https://webcup-martinafranca.github.io/gallery/";
+let GAL_BASE=/webcup-martinafranca\.github\.io$|^localhost$/.test(location.hostname)?"gallery/":"https://webcup-martinafranca.github.io/gallery/";
 let GAL=null;
 function galLoad(){ if(GAL) return Promise.resolve(GAL);
-  return fetch(GAL_BASE+"index.json?v="+(typeof BUILD!=="undefined"?BUILD:Date.now()),{cache:"no-cache"}).then(r=>r.json()).then(j=>{GAL=j;return j;}); }
+  const q="index.json?v="+(typeof BUILD!=="undefined"?BUILD:Date.now()), ABS="https://webcup-martinafranca.github.io/gallery/";
+  const get=u=>fetch(u).then(r=>{if(!r.ok) throw new Error(r.status); return r.json();});
+  return get(GAL_BASE+q).catch(()=>get(ABS+q).then(j=>{GAL_BASE=ABS;return j;})).then(j=>{GAL=j;return j;}); }
 const galN=s=>({psg:"parisstgennar",maininforma:"maiinforma"}[s]||s);
 const galNorm=s=>galN(s.toLowerCase().replace(/\bfc\b/g,"").replace(/[^a-z]/g,""));
 function galMatch(a,cat){ const c=DATA[cat+"/"+a.comp]; if(!c) return null;
@@ -2128,7 +2130,7 @@ function galleria(cat,id){
         return `<div class="gal-sez">${TROFEO_S(g.comp,cat)?`<img src="${TROFEO_S(g.comp,cat)}" alt="">`:""}<span><b>${COMP[g.comp].nome} · ${g.label}</b>${d?`<small>📅 ${d}</small>`:""}</span></div>
         <div class="gal-al">${g.al.map(a=>{const {d,title}=galInfo(a,cat);const fl=a.fase==="Finale"?"🏆 Finalissima":a.fase==="Finale 3° posto"?"🥉 Finale 3°/4° posto":"";return `<a href="#" class="gal-c" data-go="calcio/${cat}/foto/${a.id}"><span class="gal-cv"><img loading="lazy" src="${GAL_BASE}t/${a.foto[0][0]}.jpg" alt=""><i>📷 ${a.foto.length}</i></span>${fl?`<em class="gal-f">${fl}</em>`:""}<b>${title}</b>${d?`<small>${d}</small>`:""}</a>`;}).join("")}</div>`;}).join(""):`<div class="note" style="text-align:center">Nessuna foto ancora disponibile per questa categoria.</div>`}
       <a class="mb alt" href="${DROPBOX_GALLERY}" target="_blank" rel="noopener" style="margin-top:22px"><span class="mi">${ICO.cam}</span><span class="mt"><b>Archivio completo</b><small>Tutte le foto originali su Dropbox</small></span><span class="arr">›</span></a>`);
-  }).catch(()=>$(`${topbar("Photo gallery · "+C.nome,"go:calcio/"+cat+"/media")}<div class="note" style="text-align:center;margin-top:30px">Impossibile caricare le foto. Controlla la connessione e riprova.</div>`));
+  }).catch(()=>$(`${topbar("Photo gallery · "+C.nome,"go:calcio/"+cat+"/media")}<div class="note" style="text-align:center;margin-top:30px">Impossibile caricare le foto. Controlla la connessione e riprova.</div><div style="text-align:center"><a class="reg-lk" href="#" onclick="GAL=null;galleria(\'${cat}\');return false">↻ Riprova</a></div>`));
 }
 let GLB=null;
 function galOpen(aid,i){ const a=GAL.albums.find(x=>x.id===aid); if(!a) return;
@@ -2490,7 +2492,7 @@ function go(path){
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261122184638";
+const BUILD="20261122185208";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
