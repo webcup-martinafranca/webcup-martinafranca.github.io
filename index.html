@@ -1631,8 +1631,7 @@ function padel(){
     <a class="sez pad" href="#" data-go="padel/albo"><div class="sez-i"><span class="reg-ic">🏆</span></div><div class="comp-txt"><div class="comp-n">ALBO D'ORO</div><div class="comp-s">I campioni del Master Finale</div></div><div class="arr">›</div></a>
     <a class="sez pad" href="#" data-go="padel/foto"><div class="sez-i"><span class="reg-ic">📸</span></div><div class="comp-txt"><div class="comp-n">PHOTO GALLERY</div><div class="comp-s">Le foto del torneo</div></div><div class="arr">›</div></a>
     <a class="sez pad" href="#" data-go="padel/regolamento"><div class="sez-i"><span class="reg-ic">📜</span></div><div class="comp-txt"><div class="comp-n">REGOLAMENTO</div><div class="comp-s">Formula, punteggi, punti classifica e quote</div></div><div class="arr">›</div></a>
-    ${agBanner("padel")}
-    <div class="note" style="text-align:center">${PADEL.luogo}</div>`);
+    ${agBanner("padel")}`);
 }
 function padelCat(c){
   const C=PCAT[c];
@@ -1711,8 +1710,7 @@ function padelMaster(k){
 function padelOop(){
   $(`${topbar("Padel · Order of Play","go:padel")}
     <div class="h1">Order of Play</div><div class="pill pad">Padel · WEB CUP</div>
-    <div class="oop-none">🗓️<b>Non ci sono match in programma al momento</b></div>
-    <div class="note" style="text-align:center">${PADEL.luogo}</div>`);
+    <div class="oop-none">🗓️<b>Non ci sono match in programma al momento</b></div>`);
 }
 function padelAlbo(k){
   k=k==="x"?"x":"m"; const C=PCAT[k];
@@ -1777,8 +1775,7 @@ function iscrizioni(){
     <div class="h1">Iscriviti subito</div><div class="pill">Scrivici su WhatsApp</div>
     <div class="note" style="text-align:center;margin-top:0">Scegli il tuo sport: si apre una chat con un referente dello staff che ti darà tutte le informazioni per iscriverti.</div>
     ${ISCRIZIONI.map(x=>`<div class="isc ${x.cls}"><div class="isc-h"><span>${x.ico==="PAD"?PAD_ICO.replace(/width="64" height="64"/,'width="30" height="30"'):x.ico}</span><b>${MF(x.sport)}</b></div>
-      ${x.ref.map(([n,num])=>`<a class="isc-wa" href="${wa(num,x.sport)}" target="_blank" rel="noopener">${WAI}<span>${n}<small>+${num.slice(0,2)} ${num.slice(2,5)} ${num.slice(5)}</small></span><i>Scrivi ›</i></a>`).join("")}</div>`).join("")}
-    <div class="note" style="text-align:center">${PADEL.luogo}</div>`);
+      ${x.ref.map(([n,num])=>`<a class="isc-wa" href="${wa(num,x.sport)}" target="_blank" rel="noopener">${WAI}<span>${n}<small>+${num.slice(0,2)} ${num.slice(2,5)} ${num.slice(5)}</small></span><i>Scrivi ›</i></a>`).join("")}</div>`).join("")}`);
 }
 function home(){
   $(`${topbar("WEB CUP 2.0")}
@@ -2523,7 +2520,7 @@ function go(path){
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261123154001";
+const BUILD="20261123154207";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
