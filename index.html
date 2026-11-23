@@ -758,7 +758,7 @@ const ROSE_SUPERCOPPA_O50 = {
   "Net Ambiente": unisciRose(ROSE["Net Ambiente"], ROSE_MUNDIALITO_O50["Net Ambiente"]).filter(x=>!x.startsWith("Braccioforte Piero")) /* gioca per i Red Devils */
 };
 
-const YT = { highlights:"https://www.youtube.com/playlist?list=PL0xtqLVClFi0zOQctET4I12w1M8XsELCY", interviste:"https://www.youtube.com/playlist?list=PL0xtqLVClFi0ekyeAnaJlbwbfBr8ypxne", canale:"https://www.youtube.com/@WEBMasculineStoreCUP" };
+const YT = { highlights:"https://www.youtube.com/playlist?list=PL0xtqLVClFi0zOQctET4I12w1M8XsELCY", interviste:"https://www.youtube.com/@WEBMasculineStoreCUP/shorts", canale:"https://www.youtube.com/@WEBMasculineStoreCUP" };
 
 /* REGOLAMENTO – testo migrato dalle pagine Mailup 674 (Over50) e 675 (Under) */
 const REGOLAMENTI = {
@@ -2038,7 +2038,7 @@ function media(cat){
   $(`${topbar("Media · "+C.nome,"go:calcio/"+cat)}
     <div class="premio-h">${lg?`<img src="${lg}" alt="Media">`:`<div class="h1">Media</div>`}</div><div class="pill ${C.cls}">Calcio · ${C.nome}</div>
     ${mbtn(YT.highlights,"play","Highlights","Playlist YouTube")}
-    ${mbtn(YT.interviste,"mic","Interviste","Playlist YouTube")}
+    ${mbtn(YT.interviste,"mic","Interviste","Shorts YouTube")}
     <a class="mb" href="#" data-go="calcio/${cat}/foto"><span class="mi">${ICO.cam}</span><span class="mt"><b>Photo gallery</b><small>Le foto di ogni partita, divise per giornata</small></span><span class="arr">›</span></a>
     ${mbtn(DROPBOX_GALLERY,"cam","Archivio completo","Tutte le foto originali su Dropbox",true)}
     ${mbtn(YT.canale,"yt","Canale YouTube WEB CUP","Tutti i video",true)}`);
@@ -2517,7 +2517,7 @@ function go(path){
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261122192559";
+const BUILD="20261123091916";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
