@@ -1487,7 +1487,8 @@ function tennis(y){ const ED=TENNIS.edizione; y=y||ED; const cur=y===ED, AR=TENN
     <a class="sez ten" href="#" data-go="tennis/oop"><div class="sez-i"><span class="reg-ic">🗓️</span></div><div class="comp-txt"><div class="comp-n">ORDER OF PLAY</div><div class="comp-s">Programma delle partite</div></div><div class="arr">›</div></a>
     <a class="sez ten" href="#" data-go="tennis/albo"><div class="sez-i"><span class="reg-ic">🏆</span></div><div class="comp-txt"><div class="comp-n">ALBO D'ORO</div><div class="comp-s">I campioni di ogni tabellone</div></div><div class="arr">›</div></a>
     <a class="sez ten" href="#" data-go="tennis/foto"><div class="sez-i"><span class="reg-ic">📸</span></div><div class="comp-txt"><div class="comp-n">PHOTO GALLERY</div><div class="comp-s">Le foto del torneo</div></div><div class="arr">›</div></a>
-    <a class="sez ten" href="#" data-go="tennis/regolamento"><div class="sez-i"><span class="reg-ic">📜</span></div><div class="comp-txt"><div class="comp-n">REGOLAMENTO</div><div class="comp-s">Formula, regole di gioco, quote e date</div></div><div class="arr">›</div></a>`);
+    <a class="sez ten" href="#" data-go="tennis/regolamento"><div class="sez-i"><span class="reg-ic">📜</span></div><div class="comp-txt"><div class="comp-n">REGOLAMENTO</div><div class="comp-s">Formula, regole di gioco, quote e date</div></div><div class="arr">›</div></a>
+    ${cur?agBanner("tennis"):""}`);
 }
 function tennisCat(k){
   const C=TCAT[k]; const T=Object.entries(TENNIS.tabelloni).filter(([id,t])=>t.cat===k);
@@ -1630,6 +1631,7 @@ function padel(){
     <a class="sez pad" href="#" data-go="padel/albo"><div class="sez-i"><span class="reg-ic">🏆</span></div><div class="comp-txt"><div class="comp-n">ALBO D'ORO</div><div class="comp-s">I campioni del Master Finale</div></div><div class="arr">›</div></a>
     <a class="sez pad" href="#" data-go="padel/foto"><div class="sez-i"><span class="reg-ic">📸</span></div><div class="comp-txt"><div class="comp-n">PHOTO GALLERY</div><div class="comp-s">Le foto del torneo</div></div><div class="arr">›</div></a>
     <a class="sez pad" href="#" data-go="padel/regolamento"><div class="sez-i"><span class="reg-ic">📜</span></div><div class="comp-txt"><div class="comp-n">REGOLAMENTO</div><div class="comp-s">Formula, punteggi, punti classifica e quote</div></div><div class="arr">›</div></a>
+    ${agBanner("padel")}
     <div class="note" style="text-align:center">${PADEL.luogo}</div>`);
 }
 function padelCat(c){
@@ -1807,15 +1809,18 @@ function svBanners(){
   return `<a class="sbn svb" href="#" data-go="calcio/svincolati">${SV_SHIELD}<span class="sbn-t"><span class="sbn-k">MERCATO</span><b>SVINCOLATI</b><small>Cerchi squadra? Candidati!<br>Manager: scopri i liberi</small></span><span class="svb-n">${liberi.length} LIBERI</span><span class="sv-av">${liberi.slice(0,4).map(x=>`<img src="${SPONSOR["sv-"+x.f]}" alt="">`).join("")}</span></a>
   <a class="agd" href="#" data-go="calcio/aggiorna"><span class="agd-i"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 20h4L19 9l-4-4L4 16z" fill="none" stroke="#ffd60a" stroke-width="2.2" stroke-linejoin="round"/><path d="M13.5 6.5l4 4" stroke="#ffd60a" stroke-width="2.2"/></svg></span><span><b>AGGIORNA I TUOI DATI</b><small>Data di nascita e fotografia</small></span><span class="arr">›</span></a>`;
 }
-function aggiornaDati(){
-  $(`${topbar("Aggiorna i tuoi dati","go:calcio")}
+const agBanner=sp=>`<a class="agd" href="#" data-go="${sp}/aggiorna"><span class="agd-i"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 20h4L19 9l-4-4L4 16z" fill="none" stroke="#ffd60a" stroke-width="2.2" stroke-linejoin="round"/><path d="M13.5 6.5l4 4" stroke="#ffd60a" stroke-width="2.2"/></svg></span><span><b>AGGIORNA I TUOI DATI</b><small>Data di nascita e fotografia</small></span><span class="arr">›</span></a>`;
+function aggiornaDati(sp){
+  sp=sp||"calcio"; const nm={calcio:"",tennis:" Tennis",padel:" Padel"}[sp]||"";
+  const msg=sp==="calcio"?SV_AGG:`Ciao Stefano! Vorrei aggiornare i miei dati WEB CUP${nm}.\n\nNome e cognome: \nCategoria: \nData di nascita: \n\n(Se vuoi aggiornare la foto, allegala qui)`;
+  $(`${topbar("Aggiorna i tuoi dati","go:"+sp)}
   <div class="ag-hero"><span><svg viewBox="0 0 24 24" width="38" height="38"><path d="M4 20h4L19 9l-4-4L4 16z" fill="none" stroke="#1a1200" stroke-width="2.2" stroke-linejoin="round"/><path d="M13.5 6.5l4 4" stroke="#1a1200" stroke-width="2.2"/></svg></span></div>
   <div class="h1">Aggiorna i tuoi dati</div>
-  <div class="ag-box"><p>Sei in una rosa della <b>WEB CUP</b>? Puoi aggiornare i dati del tuo profilo giocatore:</p>
+  <div class="ag-box"><p>${sp==="calcio"?"Sei in una rosa della <b>WEB CUP</b>?":"Partecipi alla <b>WEB CUP"+nm+"</b>?"} Puoi aggiornare i dati del tuo profilo giocatore:</p>
   <div class="ag-it"><div><i>🎂</i><b>DATA DI NASCITA</b></div><div><i>📸</i><b>FOTOGRAFIA</b></div></div>
-  <p>Per farlo basta inviare un <b>WhatsApp a Stefano</b>, l'organizzatore, con nome, cognome, squadra e i dati da aggiornare: <b>il tuo profilo sarà aggiornato!</b></p></div>
-  <a class="sv-cta ag-cta" href="${waTo(STEFANO_WA,SV_AGG)}" target="_blank" rel="noopener">SCRIVI A STEFANO ${WAI_G}</a>
-  <div class="sv-note">Per la foto usa un'immagine nitida, possibilmente con la maglia della tua squadra.</div>`);
+  <p>Per farlo basta inviare un <b>WhatsApp a Stefano</b>, l'organizzatore, con nome, cognome, ${sp==="calcio"?"squadra":"categoria"} e i dati da aggiornare: <b>il tuo profilo sarà aggiornato!</b></p></div>
+  <a class="sv-cta ag-cta" href="${waTo(STEFANO_WA,msg)}" target="_blank" rel="noopener">SCRIVI A STEFANO ${WAI_G}</a>
+  <div class="sv-note">${sp==="calcio"?"Per la foto usa un'immagine nitida, possibilmente con la maglia della tua squadra.":"Per la foto usa un'immagine nitida, con il volto ben visibile."}</div>`);
 }
 function svincolati(cat){
   cat=cat==="over50"?"over50":"under";
@@ -2473,7 +2478,8 @@ function go(path){
   document.body.classList.remove("gz-on","tt");
   const p=(path||"").split("/");
   window.scrollTo(0,0);
-  if(p[0]==="calcio" && p[1]==="aggiorna") return aggiornaDati();
+  if(p[0]==="calcio" && p[1]==="aggiorna") return aggiornaDati("calcio");
+  if((p[0]==="tennis"||p[0]==="padel") && p[1]==="aggiorna") return aggiornaDati(p[0]);
   if(p[0]==="calcio" && p[1]==="svincolati") return svincolati(p[2]);
   if(p[0]==="calcio" && CAT[p[1]] && p[2]==="giudice") return giudice(p[1]);
   if(p[0]==="calcio" && CAT[p[1]] && p[2]==="media") return media(p[1]);
@@ -2517,7 +2523,7 @@ function go(path){
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261123132803";
+const BUILD="20261123154001";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
