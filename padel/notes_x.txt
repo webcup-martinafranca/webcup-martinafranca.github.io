@@ -1,0 +1,62 @@
+MISTO TAPPA 1 (730 -> 731 gironi, 737 finali)
+Girone A: Palese Mimmo/Caroli Anna; Punzi Alfredo/Oliva Francesca; Semeraro Nico/Rinaldi Annarita
+ Palese/Caroli-Punzi/Oliva 6-4; Punzi/Oliva-Semeraro/Rinaldi 6-2; Palese/Caroli-Semeraro/Rinaldi 6-1
+Girone B: Simeone Antonio/Ruggieri Federica; Martucci Guido/Digiuseppe Greta; Colucci Antonio/Demita Tania; Mazzaglia Pippo/Speciale Alessandra
+ Simeone/Ruggieri-Martucci/Digiuseppe 5-6; Colucci/Demita-Mazzaglia/Speciale 4-6; Simeone/Ruggieri-Colucci/Demita 6-2; Martucci/Digiuseppe-Mazzaglia/Speciale 6-1; Simeone/Ruggieri-Mazzaglia/Speciale 6-0; Martucci/Digiuseppe-Colucci/Demita 2-6 (grafica classifica: Martucci/Digiuseppe 3-0 8pt -> probabile 6-2)
+Girone C: Solito Domenico/Greco Claudia; Leuci Fabio/Lenoci Titty; Blasi Ciccio/Semeraro Alessia; Colucci Marco/Gentile Carlotta
+ Solito/Greco-Leuci/Lenoci 5-6; Blasi/Semeraro-Colucci/Gentile 2-6; Solito/Greco-Blasi/Semeraro 6-5; Leuci/Lenoci-Colucci/Gentile 6-2; Solito/Greco-Colucci/Gentile 6-2; Leuci/Lenoci-Blasi/Semeraro 5-6
+Girone D: Olivieri Donatello/Margherita Tatiana; Clemente Donato/Ragusa Rosa; Semeraro Marco/Vinci Simona; Zaurino Nicola/Liuzzi Serena
+ Olivieri/Margherita-Clemente/Ragusa 2-6; Semeraro/Vinci-Zaurino/Liuzzi 0-6; Olivieri/Margherita-Semeraro/Vinci 6-2; Clemente/Ragusa-Zaurino/Liuzzi 6-5; Olivieri/Margherita-Zaurino/Liuzzi 6-5; Clemente/Ragusa-Semeraro/Vinci 4-6
+ [fix B: Martucci/Digiuseppe-Colucci/Demita => 6-2 (classifica grafica 3-0)] [fix D: Clemente/Ragusa-Semeraro/Vinci => 6-4 (Semeraro/Vinci 0 vittorie)]
+Girone E: Castellana Andrea/Caradonna Aurora; Marinosci Piero/Semeraro Edelweiss; Esposito Umberto/Carbotti Marianna; Labbro Domenico/Castellana Graziana
+ Castellana/Caradonna-Marinosci/Semeraro 6-2; Esposito/Carbotti-Labbro/Castellana 0-6; Castellana/Caradonna-Esposito/Carbotti 6-4; Marinosci/Semeraro-Labbro/Castellana 1-6; Castellana/Caradonna-Labbro/Castellana 4-6; Marinosci/Semeraro-Esposito/Carbotti 1-6
+GOLD T1: Ottavi: Simeone/Ruggieri-Clemente/Ragusa 6-3; Leuci/Lenoci-Zaurino/Liuzzi 5-6
+ Quarti: Solito/Greco-Punzi/Oliva 6-3; Labbro/Castellana-Simeone/Ruggieri 6-5; Zaurino/Liuzzi-Palese/Caroli 1-6; Castellana/Caradonna-Martucci/Digiuseppe 1-6
+ Semi: Solito/Greco-Labbro/Castellana 1-6; Palese/Caroli-Martucci/Digiuseppe 6-3
+ Finale: Labbro/Castellana-Palese/Caroli 4-6 -> Palese/Caroli
+SILVER T1: Ottavi: Blasi/Semeraro-Esposito/Carbotti 6-0
+ Quarti: Olivieri/Margherita-Colucci/Demita 6-3; Colucci/Gentile-Marinosci/Semeraro 6-0; Blasi/Semeraro-Semeraro/Rinaldi 5-6; Semeraro/Vinci-Mazzaglia/Speciale 4-6
+ Semi: Olivieri/Margherita-Colucci/Gentile 6-5; Semeraro/Rinaldi-Mazzaglia/Speciale 4-6
+ Finale: Olivieri/Margherita-Mazzaglia/Speciale 6-1 -> Olivieri/Margherita
+
+MISTO TAPPA 2 (855 -> 856 gironi, 862 finali)
+Girone A: Labbro Domenico/Castellana Graziana; Leuci Fabio/Lenoci Titti; Basilico Pierpaolo/Caroli Margherita
+ Labbro/Castellana-Leuci/Lenoci 6-2; Labbro/Castellana-Basilico/Caroli 6-4; Leuci/Lenoci-Basilico/Caroli 6-2
+Girone B: Fumarola Giampiero/Acquaviva Marianna; Basile Piero/Oliva Francesca; Mazzaglia Pippo/Palmisano Graziana; Ricci Francesco/Ponte Carmela
+ Fumarola/Acquaviva-Mazzaglia/Palmisano 2-6; Basile/Oliva-Ricci/Ponte 6-1; Fumarola/Acquaviva-Basile/Oliva 0-6; Mazzaglia/Palmisano-Ricci/Ponte 6-5; Fumarola/Acquaviva-Ricci/Ponte 6-2; Mazzaglia/Palmisano-Basile/Oliva 0-6
+Girone C: Caroli Antonio/Speciale Alessandra; Rizzo Giuseppe/Carriero Mariadora; Semeraro Nico/Semeraro Alessia; Massacri Antonio/Andriani Samuela
+ Caroli/Speciale-Rizzo/Carriero 6-2; Semeraro/Semeraro-Massacri/Andriani 6-2; Caroli/Speciale-Semeraro/Semeraro 6-2; Rizzo/Carriero-Massacri/Andriani 2-6; Caroli/Speciale-Massacri/Andriani 6-2; Rizzo/Carriero-Semeraro/Semeraro 1-6
+Girone D: Leva Antonio/Ruggieri Annarita; Zaurino Gabriele/Massacri Valeria; Bertocci Fabrizio/Napolitano Elisabetta
+ Leva/Ruggieri-Zaurino/Massacri 1-6; Leva/Ruggieri-Bertocci/Napolitano 2-6; Zaurino/Massacri-Bertocci/Napolitano 6-0
+Girone E: Solito Domenico/Greco Claudia; Esposito Umberto/Carbotti Marianna; Simeone Antonio/Ruggieri Federica; Colucci Marco/Demita Tania
+ Solito/Greco-Esposito/Carbotti 6-3; Simeone/Ruggieri-Colucci/Demita 6-1; Solito/Greco-Colucci/Demita 6-1; Esposito/Carbotti-Simeone/Ruggieri 3-6; Solito/Greco-Simeone/Ruggieri 6-4; Esposito/Carbotti-Colucci/Demita 3-6
+GOLD T2: Ottavi: Mazzaglia/Palmisano-Simeone/Ruggieri 3-6; Solito/Greco-Bertocci/Napolitano 6-4
+ Quarti: Zaurino/Massacri-Leuci/Lenoci 6-0; Caroli/Speciale-Simeone/Ruggieri 6-2; Solito/Greco-Labbro/Castellana 4-6; Semeraro/Semeraro-Basile/Oliva 0-6
+ Semi: Zaurino/Massacri-Caroli/Speciale 6-4; Labbro/Castellana-Basile/Oliva 2-6
+ Finale: Zaurino/Massacri-Basile/Oliva 6-5 -> Zaurino/Massacri (Zaurino Gabriele/Massacri Valeria)
+SILVER T2: Quarti: Fumarola/Acquaviva-Basilico/Caroli 5-6; Leva/Ruggieri-Ricci/Ponte 6-3; Massacri/Andriani-Esposito/Carbotti 6-4; Colucci/Ponte-Rizzo/Carriero 6-2
+ Semi: Basilico/Caroli-Leva/Ruggieri "5-6" ma passa Basilico/Caroli; Massacri/Andriani-Colucci/Ponte "6-3" ma passa Colucci/Ponte
+ Finale: Basilico/Caroli-Colucci/Ponte 5-6 -> Colucci/Ponte (trofeo)
+
+MISTO TAPPA 3 (884 -> 879 gironi, 885 finali)
+Girone A: Olivieri Donatello/Rinaldi Annarita; Massacri Antonio/Caroli Anna; Nardelli Mino/Ruggieri Annarita
+ Olivieri/Rinaldi-Massacri/Caroli 6-4; Olivieri/Rinaldi-Nardelli/Ruggieri 6-4; Massacri/Caroli-Nardelli/Ruggieri 6-1
+Girone B: Caroli Antonio/Speciale Alessandra; Lasorte Andrea/Ponte Carmela; Basile Piero/Oliva Francesca; Semeraro Nico/Semeraro Alessia
+ Caroli/Speciale-Lasorte/Ponte 6-1; Basile/Oliva-Semeraro/Semeraro 6-1; Caroli/Speciale-Basile/Oliva 1-6; Lasorte/Ponte-Semeraro/Semeraro 1-6; Caroli/Speciale-Semeraro/Semeraro 5-6; Lasorte/Ponte-Basile/Oliva 1-6
+Girone C: Zaurino Gabriele/Ruggieri Federica; Solito Domenico/Semeraro Valeria; Granaldi Nicola/Zaccaria Carlotta; Leva Antonio/Liuzzi Serena
+ Zaurino/Ruggieri-Solito/Semeraro 6-2; Granaldi/Zaccaria-Leva/Liuzzi 2-6; Zaurino/Ruggieri-Granaldi/Zaccaria 6-1; Solito/Semeraro-Leva/Liuzzi 4-6; Zaurino/Ruggieri-Leva/Liuzzi 6-4; Solito/Semeraro-Granaldi/Zaccaria 6-1
+Girone D: Palese Mimmo/Greco Claudia; Semeraro Marco/Vinci Simona; Laguardia Francesco/Acquaviva Marianna; Leuci Fabio/Lenoci Titti
+ Palese/Greco-Semeraro/Vinci 6-1; Laguardia/Acquaviva-Leuci/Lenoci 6-2; Palese/Greco-Laguardia/Acquaviva 6-2; Semeraro/Vinci-Leuci/Lenoci 6-2; Palese/Greco-Leuci/Lenoci 6-4; Semeraro/Vinci-Laguardia/Acquaviva 4-6
+Girone E: Simeone Antonio/Massacri Valeria; Marinosci Piero/Semeraro Edelweiss; Esposito Umberto/Carbotti Marianna; Basilico Pierpaolo/Caroli Margherita
+ Simeone/Massacri-Marinosci/Semeraro 6-2; Esposito/Carbotti-Basilico/Caroli 6-4; Simeone/Massacri-Esposito/Carbotti 6-0; Marinosci/Semeraro-Basilico/Caroli 2-6; Simeone/Massacri-Basilico/Caroli 6-0; Marinosci/Semeraro-Esposito/Carbotti 3-6
+GOLD T3: Ottavi: Zaurino/Ruggieri-Massacri/Caroli 3-6; Leva/Liuzzi-Esposito/Carbotti 6-1
+ Quarti: Simeone/Massacri-Semeraro/Semeraro 6-1; Olivieri/Rinaldi-Massacri/Caroli 6-5; Leva/Liuzzi-Palese/Greco 2-6; Basile/Oliva-Laguardia/Acquaviva 6-0
+ Semi: Simeone/Massacri-Olivieri/Rinaldi 6-3; Palese/Greco-Basile/Oliva 5-6
+ Finale: Simeone/Massacri-Basile/Oliva 6-2 -> Simeone/Massacri
+SILVER T3: Ottavi: Semeraro/Vinci-Lasorte/Ponte 6-5
+ Quarti: Solito/Semeraro-Marinosci/Semeraro 6-5; Caroli/Speciale-Granaldi/Zaccaria (senza punteggio, passa Granaldi/Zaccaria); Basilico/Caroli-Semeraro/Vinci 6-5; Nardelli/Ruggieri-Leuci/Lenoci 2-6
+ Semi: Solito/Semeraro-Granaldi/Zaccaria 6-3; Basilico/Caroli-Leuci/Lenoci 2-6
+ Finale: Solito/Semeraro-Leuci/Lenoci 3-6 -> Leuci/Lenoci
+CLASSIFICA MISTO (741) individuale, maschile e femminile separate, primi 8 qualificati:
+ M: 1 Simeone Antonio 85(3); 2 Palese Mimmo 75(2); 3 Basile Piero 70(2); 4 Zaurino Gabriele 70(2); 5 Labbro Domenico 55(3); 6 Solito Domenico 50(3); 7 Leuci Fabio 50(3); 8 Semeraro Nico 40(3); 9 Olivieri Donatello 40(2); 10 Mazzaglia Pippo 30(2); 11 Colucci Marco 30(2); 12 Esposito Umberto 25(3); 13 Leva Antonio 25(2); 14 Massacri Antonio 25(2); 15 Basilico Pierpaolo 25(2); 16 Caroli Antonio 25(2); 17 Marinosci Piero 15(2); 18 Semeraro Marco 10(3); 19 Martucci Guido 20(1); 20 Punzi Alfredo 15; 21 Clemente Donato 15; 22 Zaurino Nicola 15; 23 Castellana Andrea 15; 24 Bertocci Fabrizio 15; 25 Laguardia Francesco 15; 26 Granaldi Nicola 10; 27 Fumarola Giampiero 5; 28 Ricci Francesco 5; 29 Rizzo Giuseppe 5; 30 Blasi Ciccio 5; 31 Colucci Antonio 5; 32 Nardelli Mino 5; 33 Lasorte Andrea 5
+ F: 1 Massacri Valeria 110(2); 2 Oliva Francesca 85(3); 3 Caroli Anna 70(2); 4 Greco Claudia 55(3); 5 Castellana Graziana 55(2); 6 Lenoci Titti 50(3); 7 Ruggieri Federica 45(3); 8 Speciale Alessandra 40(3); 9 Semeraro Alessia 35(3); 10 Liuzzi Serena 30(2); 11 Rinaldi Annarita 30(2); 12 Carbotti Marianna 25(3); 13 Caroli Margherita 25(2); 14 Acquaviva Marianna 20(2); 15 Ruggieri Annarita 15(2); 16 Semeraro Edelweiss 15(1); 17 Vinci Simona 10(2); 18 Ponte Carmela 10(2); 19 Demita Tania 10(2); 20 Digiuseppe Greta 20(1); 21 Margherita Tatiana 20(1); 22 Ragusa Rosa 15; 23 Caradonna Aurora 15; 24 Palmisano Graziana 15; 25 Napolitano Elisabetta 15; 26 Semeraro Valeria 15; 27 Gentile Carlotta 10; 28 Andriani Samuela 10; 29 Zaccaria Carlotta 10; 30 Carriero Mariadora 5

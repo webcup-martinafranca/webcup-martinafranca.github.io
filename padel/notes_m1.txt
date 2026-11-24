@@ -1,0 +1,75 @@
+MASCHILE TAPPA 1 (LP 525)
+Girone A: Pizzigallo Massmo/Martucci Guido; Carbotti Angelo/Gentile Danilo; Colucci Antonio/Simeone Antonello; Basile Ciccio/Castellana Ivan
+ Pizzigallo/Martucci-Carbotti/Gentile 6-1; Colucci/Simeone-Basile/Castellana 4-6; Pizzigallo/Martucci-Colucci/Simeone 6-3; Carbotti/Gentile-Basile/Castellana 2-6; Pizzigallo/Martucci-Basile/Castellana 6-5; Carbotti/Gentile-Colucci/Simeone 2-6
+ Classifica grafica: Pizzigallo/Martucci 8 3-0; Basile/Castellana 3 1-2 (!); Colucci/Simeone 3 1-2; Carbotti/Gentile 0 0-3
+Girone B: Casavola Martino/Palese Mimmo; Laguardia Francesco/Pizzigallo Domenico; Zaurino Gabriele/Massacri Antonio; Semeraro Nico/Conte Ezio
+ Casavola/Palese-Laguardia/Pizzigallo 6-1; Zaurino/Massacri-Semeraro/Conte 6-4; Casavola/Palese-Zaurino/Massacri 6-0; Laguardia/Pizzigallo-Semeraro/Conte 0-6; Casavola/Palese-Semeraro/Conte 6-1; Laguardia/Pizzigallo-Zaurino/Massacri 2-6
+ Cl: Casavola/Palese 9; Zaurino/Massacri 6; Semeraro/Conte 3; Laguardia/Pizzigallo 0
+Girone C: Basile Piero/Basile Vito; Leva Antonio/Nardelli Mino; Corrente Claudio/Magnifico Vincenzo; Granaldi Nicola/Granaldi Alessandro
+ Basile/Basile-Leva/Nardelli 6-2; Corrente/Magnifico-Granaldi/Granaldi 6-0; Basile/Basile-Corrente/Magnifico 6-3; Leva/Nardelli-Granaldi/Granaldi 6-0; Basile/Basile-Granaldi/Granaldi 6-1; Leva/Nardelli-Corrente/Magnifico 2-6
+ Cl: Basile/Basile 9; Corrente/Magnifico 6; Leva/Nardelli 3; Granaldi 0
+Girone D: Corsi Tony/Labbro Domenico; Bello Mauro/Ancona Tony; Leuci Fabio/Semeraro Marco; Caramia Valerio/Caramia Andrea
+ Corsi/Labbro-Bello/Ancona 6-1; Leuci/Semeraro-Caramia/Caramia 6-2; Corsi/Labbro-Leuci/Semeraro 6-0; Bello/Ancona-Caramia/Caramia 6-0; Corsi/Labbro-Caramia/Caramia 6-1; Bello/Ancona-Leuci/Semeraro 4-6
+ Cl: Corsi/Labbro 9; Leuci/Semeraro 6; Bello/Ancona 3; Caramia 0
+Girone E: Lionetti Carlo/Zaurino Nicola; Marinosci Piero/Massacri Antonio Jr; Solito Domenico/Blasi Ciccio; Basilico Mattia/Aiello Matteo
+ Lionetti/Zaurino-Marinosci/Massacri 6-2; Solito/Blasi-Basilico/Aiello 6-3; Lionetti/Zaurino-Solito/Blasi 6-3; Marinosci/Massacri-Basilico/Aiello 6-0; Lionetti/Zaurino-Basilico/Aiello 6-0; Marinosci/Massacri-Solito/Blasi 6-4
+ Cl: Lionetti/Zaurino 9; Marinosci/Massacri 6; Solito/Blasi 3; Basilico/Aiello 0
+GOLD tabellone (725.0):
+ Ottavi: Pizzigallo/Martucci-Corrente/Magnifico 6-2 ; Basile/Castellana-Marinosci/Massacri 2-6 (others bye)
+ Quarti: Casavola/Palese-Leuci/Semeraro 6-2; Lionetti/Zaurino-Pizzigallo/Martucci 6-3; Marinosci/Massacri-Basile/Basile 1-6; Zaurino/Massacri-Corsi/Labbro 2-6
+ Semi: Casavola/Palese-Lionetti/Zaurino 6-4; Basile/Basile-Corsi/Labbro 6-1
+ Finale: Casavola/Palese-Basile/Basile 5-6 -> Basile/Basile campioni
+SILVER tabellone tappa1 (725.1):
+ Ottavi: Solito/Blasi-Laguardia/Pizzigallo 6-2; Basilico/Aiello-Carbotti/Gentile 5-6
+ Quarti: Colucci/Simeone-Granaldi/Granaldi 6-1; Bello/Ancona-Solito/Blasi 5-6; Carbotti/Gentile-Semeraro/Conte 1-6; Caramia/Caramia-Leva/Nardelli 2-6
+ Semi: Colucci/Simeone-Solito/Blasi (no score, Solito/Blasi); Semeraro/Conte-Leva/Nardelli (no score, Leva/Nardelli)
+ Finale: Solito/Blasi-Leva/Nardelli 6-2 -> Solito/Blasi
+
+MASCHILE TAPPA 2 (LP 846 -> 844 gironi, 754 finali)
+Girone A: Pizzigallo Massmo/Martucci Guido; Labbro Domenico/Zaurino Nicola; Nardelli Mino/Bertocci Fabrizio; Ricci Francesco/Simone Roberto
+ Pizzigallo/Martucci-Labbro/Zaurino 6-4; Nardelli/Bertocci-Ricci/Simone 6-1; Pizzigallo/Martucci-Nardelli/Bertocci 6-3; Labbro/Zaurino-Ricci/Simone 6-1; Pizzigallo/Martucci-Ricci/Simone 6-1; Labbro/Zaurino-Nardelli/Bertocci 6-3
+Girone B: Corsi Tony/Giacovazzo Giuseppe; Laguardia Francesco/Lacarbonara Claudio; Semeraro Marco/Marinosci Piero; Semeraro Nico/Terruli Jonny
+ Corsi/Giacovazzo-Laguardia/Lacarbonara 6-2; Semeraro/Marinosci-Semeraro/Terruli 6-2; Corsi/Giacovazzo-Semeraro/Marinosci 6-1; Laguardia/Lacarbonara-Semeraro/Terruli 6-4; Corsi/Giacovazzo-Semeraro/Terruli 6-0; Laguardia/Lacarbonara-Semeraro/Marinosci 4-6
+Girone C: Colucci Marco/Martino Giuseppe; Basile Ciccio/Lasorte Alessandro; Corrente Claudio/Magnifico Vincenzo; Granaldi Nicola/Granaldi Alessandro
+ Colucci/Martino-Basile/Lasorte 3-6; Corrente/Magnifico-Granaldi/Granaldi 6-0; Colucci/Martino-Corrente/Magnifico 3-6; Basile/Lasorte-Granaldi/Granaldi 6-2; Colucci/Martino-Granaldi/Granaldi 6-1; Basile/Lasorte-Corrente/Magnifico 5-6
+ (grafica Corrente 8 3-0: 3+3+2) => REGOLA PUNTI: vittoria 3, vittoria 6-5 = 2, sconfitta 5-6 = 1
+Girone D: Casavola Martno/Basile Vito; Leva Antonio/Ancona Tony; Colucci Antonio/Zaurino Gabriele; Rizzo Giuseppe/Simeone Antonio
+ Rizzo/Simeone-Colucci/Zaurino 6-0; [riga duplicata in grafica: "Rizzo/Simeone vs Colucci/Zaurino 6-3" -> ricostruita Casavola/Basile-Leva/Ancona 6-3]; Casavola/Basile-Rizzo/Simeone 6-5; Leva/Ancona-Colucci/Zaurino 0-6; Leva/Ancona-Rizzo/Simeone 2-6; Colucci/Zaurino-Casavola/Basile 6-3
+ Cl grafica: Rizzo 7 2-1; Colucci/Zaurino 6 2-1; Casavola/Basile 5 2-1; Leva/Ancona 0
+Girone E: Lionetti Carlo/Leuci Fabio; Basile Piero/Palese Mimmo; Esposito Umberto/Quirci Davide; Blasi Ciccio/Castellana Andrea
+ Lionetti/Leuci-Basile/Palese 3-6; Esposito/Quirci-Blasi/Castellana 3-6; Lionetti/Leuci-Esposito/Quirci 6-2; Basile/Palese-Blasi/Castellana 6-1; Lionetti/Leuci-Blasi/Castellana 1-6; Basile/Palese-Esposito/Quirci 6-0
+GOLD tappa2 (754.0):
+ Ottavi: Rizzo/Simeone-Labbro/Zaurino 6-4; Colucci/Zaurino-Semeraro/Marinosci 4-6
+ Quarti: Corsi/Giacovazzo-Basile/Lasorte 6-1; Pizzigallo/Martucci-Rizzo/Simeone 6-1; Semeraro/Marinosci-Basile/Palese 1-6; Blasi/Castellana-Corrente/Magnifico 6-5
+ Semi: Corsi/Giacovazzo-Pizzigallo/Martucci 4-6; Basile/Palese-Blasi/Castellana 6-2
+ Finale: Pizzigallo/Martucci-Basile/Palese 3-6 -> Basile/Palese
+SILVER tappa2 (754.1):
+ Ottavi: Granaldi/Granaldi-Ricci/Simeone 1-6; Esposito/Quirci-Laguardia/Lacarbonara 4-6
+ Quarti: Nardelli/Bertocci-Semeraro/Terruli 6-1; Basile/Casavola-Ricci/Simeone 6-1; Laguardia/Lacarbonara-Colucci/Martino 6-1; Leuci/Lionetti-Leva/Ancona 6-3
+ Semi: Nardelli/Bertocci-Basile/Casavola 0-6; Laguardia/Lacarbonara-Leuci/Lionetti 5-6
+ Finale: Basile/Casavola-Leuci/Lionetti 6-4 -> Basile/Casavola (= Basile Vito/Casavola Martino)
+
+MASCHILE TAPPA 3 (LP 869 -> 870 gironi, 875 finali)
+Girone A: Pizzigallo Massmo/Martucci Guido; Basile Ciccio/Rizzo Giuseppe; Colucci Marco/Semeraro Marco; Basilico Pierpaolo/Basilico Mattia
+ Pizzigallo/Martucci-Basile/Rizzo 6-5; Colucci/Semeraro-Basilico/Basilico 6-3; Pizzigallo/Martucci-Colucci/Semeraro 6-2; Basile/Rizzo-Basilico/Basilico 6-2; Pizzigallo/Martucci-Basilico/Basilico 6-3; Basile/Rizzo-Colucci/Semeraro 6-2
+Girone B: Castellana Nicolo'/Castellana Luca; Basile Vito/Solito Domenico; Corrente Claudio/Magnifico Vincenzo; Ponte Michele/Lacarbonara Claudio
+ Castellana/Castellana-Basile/Solito 3-6; Corrente/Magnifico-Ponte/Lacarbonara 6-2; Castellana/Castellana-Corrente/Magnifico 3-6; Basile/Solito-Ponte/Lacarbonara 6-2; Castellana/Castellana-Ponte/Lacarbonara 6-3; Basile/Solito-Corrente/Magnifico 1-6
+Girone C: Labbro Domenico/Lionetti Carlo; Montanaro Marco/Lasorte Alessandro; Castellana Andrea/Blasi Ciccio; Leva Antonio/Clemente Donato (grafica: Clementa)
+ Labbro/Lionetti-Montanaro/Lasorte 4-6; Castellana/Blasi-Leva/Clemente 3-6; Labbro/Lionetti-Castellana/Blasi 6-4; Montanaro/Lasorte-Leva/Clemente 6-5; Labbro/Lionetti-Leva/Clemente 3-6; Montanaro/Lasorte-Castellana/Blasi 4-6
+Girone D: Basile Piero/Giacovazzo Giuseppe (classifica e tabellone: BASILE/LUCARELLA); Marinosci Piero/Zaurino Gabriele; Leuci Fabio/Pricci Giuseppe; Mazzaglia Pippo/Martino Giuseppe
+ Basile/Giacovazzo-Marinosci/Zaurino 6-1; Leuci/Pricci-Mazzaglia/Martino 6-0; Basile/Giacovazzo-Leuci/Pricci 6-3; Marinosci/Zaurino-Mazzaglia/Martino 6-2; Basile/Giacovazzo-Mazzaglia/Martino 6-0; Marinosci/Zaurino-Leuci/Pricci 6-2
+GOLD tappa3: Quarti: Pizzigallo/Martucci-Montanaro/Lasorte 6-1; Basile/Lucarella-Basile/Rizzo 6-0; Corrente/Magnifico-Marinosci/Zaurino 4-6; Leva/Clemente-Basile/Solito 6-5
+ Semi: Pizzigallo/Martucci-Basile/Lucarella 4-6; Marinosci/Zaurino-Leva/Clemente 6-5
+ Finale: Basile/Lucarella-Marinosci/Zaurino 6-4 -> Basile/Lucarella
+SILVER tappa3: Quarti: Colucci/Semeraro-Ponte/Lacarbonara 6-2; Castellana/Castellana-Mazzaglia/Martino 6-3; Castellana/Blasi-Basilico/Basilico 6-2; Leuci/Pricci-Labbro/Lionetti 1-6
+ Semi: Colucci/Semeraro-Castellana/Castellana 3-6; Castellana/Blasi-Labbro/Lionetti 4-6
+ Finale: Castellana/Castellana (trofeo) vs [vuoto: Labbro/Lionetti] "1-6" -> ambiguo
+CLASSIFICA MASTER MASCHILE (727): 1 Basile Piero 165 (3 tappe); 2 Basile Vito 90 (3); 3 Palese Mimmo 90 (2); 4 Pizzigallo Massimo 70 (3); 5 Martucci Guido 70 (3); 6 Marinosci Piero 65 (3); 7 Zaurino Gabriele 65 (3); 8 Labbro Domenico 55 (3); 9 Lionetti Carlo 55 (3); 10 Casavola Martino 55 (2); 11 Blasi Ciccio 50 (3); 12 Corrente Claudio 45 (3); 13 Magnifico Vincenzo 45 (3); 14 Basile Ciccio 45 (3); 15 Semeraro Marco 40 (3); 16 Leva Antonio 40 (3)
+Master Maschile (828): Domenica 31 maggio 2026 Gran Finale. Qualificati 1-16 = classifica. Nessun risultato del Master pubblicato su Mailup.
+REGOLAMENTO MASTER (828.1): conferma presenza, ripescaggio dalla 17ª. Tre partite a coppie sorteggiate per fasce: M1 1-4 con 5-8, 9-12 con 13-16; M2 1-4 con 9-12, 5-8 con 13-16; M3 1-4 con 13-16, 5-8 con 9-12.
+ Primi 8 della classifica dopo 3 tappe partono con 2 punti bonus. Semifinali ai primi 8 della classifica Master; parità -> posizione nelle 3 tappe. Semifinali e finale coppie sorteggiate (sorteggio libero, anche stesso compagno).
+ Formula: un set a 6 game, tie-break a 7 sul 6-6, killer point sul 40/40 (chi risponde decide il lato). Punteggio: vittoria 3, vittoria tie-break 2, sconfitta tie-break 1.
+ Premi: primi 2 della classifica finale dopo le 3 tappe; prima e seconda coppia del Master finale.
+ Quote: soci 20€, non soci 25€ (caffè, acqua, maglietta celebrativa Master Web Cup). Qualificati Master maschile e misto: soci 30€, non soci 40€.
+PUNTI TAPPA (ricavati e verificati sulla classifica): GOLD vincitore 55, finalista 35, semifinale 20, quarti/ottavi 15; SILVER vincitore 20, finalista 15, semifinale 10, quarti/ottavi 5.
+ => Silver T3: vincitori Labbro/Lionetti (6-1), Castellana/Castellana finalisti (15 pt ciascuno conferma).

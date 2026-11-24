@@ -1,0 +1,15 @@
+#!/bin/bash
+# Build + compatta + pubblica su GitHub Pages (stefanomarinuzzi/webcup)
+set -e
+cd /home/claude/webcup2
+python3 build.py >/dev/null
+python3 compact.py
+cp /mnt/user-data/outputs/webcup2.html /home/claude/webcup-martinafranca.github.io/index.html
+cp /home/claude/webcup2/version.txt /home/claude/webcup-martinafranca.github.io/version.txt
+cd /home/claude/webcup-martinafranca.github.io
+git add -A
+git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -qm "${1:-Aggiornamento WEB CUP}
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_011eaB78HbQ2a65DXCdkJveo" || echo "nessuna modifica"
+git -c push.negotiate=true push origin HEAD 2>&1 | tail -1
