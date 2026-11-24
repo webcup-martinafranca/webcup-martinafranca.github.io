@@ -722,7 +722,7 @@ const DATA = {
   edizione: "2026", stato: "In programma", rose: "ROSE_SUPERCOPPA_O50",
   squadre: ["Red Devils","Net Ambiente"],
   partite: [
-    {fase:"Finale", data:"Domenica 13/12 · ore 10:00", casa:"Red Devils", ospite:"Net Ambiente", gc:null, go:null, nota:"Vincitrice WEB CUP vs vincitrice Mundialito"}
+    {fase:"Finale", data:"Domenica 13/12 · ore 15:00", casa:"Red Devils", ospite:"Net Ambiente", gc:null, go:null, nota:"Vincitrice WEB CUP vs vincitrice Mundialito"}
   ]
 }
 };
@@ -770,7 +770,7 @@ const REGOLAMENTI = {
   ["Slot di gioco", [
     {sub:"webcup", list:["Sabato: ore 16:00 / 17:00.","Domenica: ore 8:30 / 9:30 e ore 9:30 / 10:30.","1-2 match la domenica mattina, 1-2 match il sabato pomeriggio."]},
     {sub:"mundialito", list:["Domenica pomeriggio: ore 16:00 / 17:00."]},
-    {sub:"supercoppa", list:["Domenica mattina: ore 10:00."]}]],
+    {sub:"supercoppa", list:["Domenica pomeriggio: ore 15:00."]}]],
   ["Quote", "QUOTE"],
   ["Iscrizioni", ["Prelazione: le squadre partecipanti all'edizione precedente hanno diritto di prelazione.","Iscrizioni libere: qualsiasi squadra può iscriversi fino al raggiungimento del numero massimo."]],
   ["Info e iscrizioni", ["Daniele Devito · tel/WhatsApp +39 328 318 9045","Vito Basile · tel/WhatsApp +39 389 831 5744","Stefano Marinuzzi · tel/WhatsApp +39 388 307 5509"]]
@@ -2597,7 +2597,7 @@ function go(path){
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261124160133";
+const BUILD="20261124163338";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
