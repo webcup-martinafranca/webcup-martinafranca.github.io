@@ -2597,7 +2597,7 @@ function go(path){
 const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
 function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261124171859";
+const BUILD="20261124182151";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
