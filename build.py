@@ -1,6 +1,7 @@
 import sys,base64,io,glob,os
 from PIL import Image
-d=glob.glob('/tmp/claude-tool-results/*/')[0]
+_g=glob.glob('/tmp/claude-tool-results/*/')
+d=_g[0] if _g else 'emb/'  # emb/: immagini già ritagliate, recuperate dal sito pubblicato
 m={'1/HOME%20WEB%20CUP%20APP%20(1).jpg':'mcp-remote-devices-blob-1795106872256-l2rg3w-c2b52d3b.jpg',
 '1/PADEL%20(2).jpg':'mcp-remote-devices-blob-1795106889737-mtl9zx-f6e32564.jpg',
 '1/PADEL.jpg':'mcp-remote-devices-blob-1795106889737-rxyqq4-cbbcb49c.jpg',
@@ -15,7 +16,7 @@ def png(f,sz):
 js="const EMB={"
 for k,f in m.items():
     im=Image.open(d+f).convert('RGB')
-    if k=='1/PADEL.jpg': W,H=im.size; im=im.crop((0,7,W-1,H)).resize((W,H),Image.LANCZOS)
+    if k=='1/PADEL.jpg' and d!='emb/': W,H=im.size; im=im.crop((0,7,W-1,H)).resize((W,H),Image.LANCZOS)
     b=io.BytesIO(); im.save(b,'JPEG',quality=82,optimize=True)
     js+=f'"{k}":"data:image/jpeg;base64,{base64.b64encode(b.getvalue()).decode()}",'
 js+="};\nconst TBTN={"+"".join(f'"{os.path.basename(f)[:-4]}":"data:image/jpeg;base64,{base64.b64encode(open(f,"rb").read()).decode()}",' for f in sorted(glob.glob('tennis/*.jpg')))+"};\n"

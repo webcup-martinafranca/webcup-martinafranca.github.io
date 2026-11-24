@@ -11,5 +11,5 @@ git add -A
 git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -qm "${1:-Aggiornamento WEB CUP}
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_011eaB78HbQ2a65DXCdkJveo" || echo "nessuna modifica"
+Claude-Session: https://claude.ai/code/session_011eaB78LndYNsQWtGnYvaeg" || echo "nessuna modifica"
 git -c push.negotiate=true push origin HEAD 2>&1 | tail -1

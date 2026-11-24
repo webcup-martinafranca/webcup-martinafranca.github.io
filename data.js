@@ -122,7 +122,7 @@ const DATA = {
   edizione: "2026", stato: "In programma",
   squadre: ["Real Madrink"],
   partite: [
-    {fase:"Finale", data:"Domenica 13/12 · ore 11:00", casa:"Real Madrink", ospite:"Vincente Mundialito Under", gc:null, go:null, nota:"Vincitrice WEB CUP vs vincitrice Mundialito"}
+    {fase:"Finale", data:"Domenica 13/12 · orario da definire", casa:"Real Madrink", ospite:"Vincente Mundialito Under", gc:null, go:null, nota:"Vincitrice WEB CUP vs vincitrice Mundialito"}
   ]
 },
 
