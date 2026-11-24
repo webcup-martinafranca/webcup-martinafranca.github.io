@@ -2594,10 +2594,19 @@ function go(path){
   if(p[0]==="tennis") return tennis();
   home();
 }
-const NAV=[]; let CURP=(location.hash||"").replace(/^#\/?/,"");
-function navTo(path,y){ CURP=path; go(path); try{ history.replaceState(null,"","#/"+path); }catch(_){} window.scrollTo(0,y||0); }
+let CURP=(location.hash||"").replace(/^#\/?/,"");
+/* cronologia reale: ogni pagina è una voce, così il tasto indietro del telefono torna alla pagina precedente */
+try{ history.scrollRestoration="manual"; }catch(_){}
+let DEPTH=(history.state&&history.state.d)||0;
+try{ history.replaceState({d:DEPTH,y:(history.state&&history.state.y)||0},"",location.href); }catch(_){}
+function saveY(){ try{ history.replaceState(Object.assign({},history.state,{y:window.scrollY}),"",location.href); }catch(_){} }
+function navTo(path,y,push){ CURP=path; go(path);
+  try{ if(push){ DEPTH++; history.pushState({d:DEPTH,y:0},"","#/"+path); } else history.replaceState({d:DEPTH,y:y||0},"","#/"+path); }catch(_){}
+  window.scrollTo(0,y||0); }
+window.addEventListener("popstate",e=>{ const s=e.state||{}; DEPTH=s.d||0; const y=s.y||0;
+  CURP=(location.hash||"").replace(/^#\/?/,""); go(CURP); window.scrollTo(0,y); requestAnimationFrame(()=>window.scrollTo(0,y)); });
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261124182151";
+const BUILD="20261125002438";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
@@ -2610,16 +2619,12 @@ document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==
 document.addEventListener("click",e=>{
   const a=e.target.closest("[data-go]"); if(!a) return;
   e.preventDefault(); const path0=a.getAttribute("data-go");
-  checkUpd().then(v=>{ if(!v) return; let dest=path0;
-    if(a.classList.contains("back")&&NAV.length) dest=NAV[NAV.length-1].p; else if(a.classList.contains("home")) dest="";
-    reloadTo(v,dest); });
+  checkUpd().then(v=>{ if(v) setTimeout(()=>reloadTo(v,CURP),60); });
   const path=path0;
-  if(a.classList.contains("back") && NAV.length){ const pr=NAV.pop(); navTo(pr.p,pr.y); requestAnimationFrame(()=>window.scrollTo(0,pr.y)); return; }
-  if(a.classList.contains("back")){ navTo(path,0); return; }
-  if(a.classList.contains("home")){ NAV.length=0; navTo("",0); return; }
+  if(a.classList.contains("back")){ if(DEPTH>0){ history.back(); return; } navTo(path,0); return; }
+  if(a.classList.contains("home")){ if(DEPTH>0){ history.go(-DEPTH); return; } navTo("",0); return; }
   if(path===CURP) return;
-  NAV.push({p:CURP,y:window.scrollY}); if(NAV.length>60) NAV.shift();
-  navTo(path,0);
+  saveY(); navTo(path,0,true);
 });
 go((location.hash||"").replace(/^#\/?/,""));
 </script>
