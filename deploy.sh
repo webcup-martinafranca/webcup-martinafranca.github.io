@@ -1,6 +1,9 @@
 #!/bin/bash
 # Build + compatta + pubblica su GitHub Pages (ramo main) + salva i sorgenti (ramo sorgenti)
 set -e
+# Allinea prima entrambi i rami (es. file CNAME creato da GitHub, modifiche di altre sessioni)
+git -C /home/claude/webcup2 pull -q --rebase origin sorgenti
+git -C /home/claude/webcup-martinafranca.github.io pull -q --rebase origin main
 cd /home/claude/webcup2
 python3 build.py >/dev/null
 python3 compact.py
