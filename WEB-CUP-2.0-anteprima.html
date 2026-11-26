@@ -18,7 +18,7 @@ body{font-family:"Poppins","Montserrat",system-ui,-apple-system,"Segoe UI",Robot
 a{color:inherit;text-decoration:none}
 .top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px;padding:12px 16px;
   background:rgba(18,9,4,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(242,177,52,.25)}
-.top .home{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.08);color:inherit;flex:none}.top .back{font-size:22px;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.08)}
+.top .home{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.08);color:inherit;flex:none}.top .back{font-size:32px;line-height:1;padding-bottom:3px;box-sizing:border-box;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.1);flex:none;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.top .back:active,.top .home:active{background:rgba(255,255,255,.25)}
 .top .ttl{font-weight:800;letter-spacing:.5px;font-size:15px;text-transform:uppercase}
 .top .badge{margin-left:auto;font-size:10px;font-weight:700;background:var(--red);padding:3px 8px;border-radius:99px}
 .hero img{width:100%;display:block}
@@ -1473,7 +1473,7 @@ function reveal(){ if(!("IntersectionObserver" in window) || matchMedia("(prefer
   document.querySelectorAll("#app .sbn,#app .tile,#app .shop,#app .sp-btns,#app .shops-t").forEach((el,i)=>{ el.classList.add("rv"); el.style.transitionDelay=(el.classList.contains("shop")?(i%2)*90:0)+"ms"; RIO.observe(el); }); }
 const attr = u => u.startsWith("go:") ? `href="#" data-go="${u.slice(3)}"` : `href="${u}" target="_blank" rel="noopener"`;
 const MF = t => String(t).replace(/\b(maschile)\b/gi,'<span class="c-m">$1</span>').replace(/\b(femminile|misto)\b/gi,'<span class="c-f">$1</span>');
-const topbar = (t,back) => `<div class="top">${back?`<a class="back" ${attr(back)}>‹</a><a class="home" href="#" data-go="" aria-label="Home"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 11.5 12 4l9 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9.5h5v-5.5h3v5.5h5V10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg></a>`:""}<div class="ttl">${MF(t)}</div></div>`;
+const topbar = (t,back) => `<div class="top">${back?`<a class="back" ${attr(back)}>‹</a><a class="home" href="#" data-go="" aria-label="Home"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 11.5 12 4l9 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9.5h5v-5.5h3v5.5h5V10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg></a>`:""}<div class="ttl">${MF(t)}</div></div>`;
 const btn = (href,title,sub,alt) => `<a class="btn ${alt?"alt":""}" ${attr(href)}><div>${title}${sub?`<small>${sub}</small>`:""}</div><div class="arr">›</div></a>`;
 
 /* ============ TENNIS ============ */
@@ -2612,7 +2612,7 @@ function navTo(path,y,push){ CURP=path; go(path);
 window.addEventListener("popstate",e=>{ const s=e.state||{}; DEPTH=s.d||0; const y=s.y||0;
   CURP=(location.hash||"").replace(/^#\/?/,""); go(CURP); window.scrollTo(0,y); requestAnimationFrame(()=>window.scrollTo(0,y)); });
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261125122841";
+const BUILD="20261126204648";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
