@@ -1731,7 +1731,7 @@ function tennisProfili(){
       const [x,y]=setsOf(sc); const win=get(Wn), los=get(Wn===A?B:A); win.sv+=x; win.sp+=y; los.sv+=y; los.sp+=x;
       [[A,B],[B,A]].forEach(([me,op])=>get(me).m.push({y:TENNIS.edizione,tab:t.nome,id,liv:t.liv,turno,op,win:me===Wn,sc:/rit/i.test(sc||"")?"ritiro":(me===Wn?(sc||""):revSc(sc||"")).replace(/\//g,"  ")})); }));
   });
-  Object.entries(TENNIS.archivio).forEach(([y,L])=>L.forEach(t=>{ if(t.w) get(t.w).tit.push({y,nome:t.nome,liv:t.liv,cat:/^Femminile/.test(t.nome)?"f":"m"}); }));
+  Object.entries(TENNIS.archivio).forEach(([y,L])=>L.forEach(t=>{ if(t.w) get(t.w).tit.push({y,nome:t.nome,liv:t.liv,cat:/^Femminile/.test(t.nome)?"f":"m"}); [t.a,t.b].forEach(n=>{ if(n) get(n); }); }));
   return _TP=P; }
 let _PP=null;
 const revSc=sc=>(sc||"").split("/").map(x=>x.replace(/^(\s*)(\d+)-(\d+)/,(m,sp,a,b)=>sp+b+"-"+a)).join("/");
@@ -1802,7 +1802,7 @@ function padelAlbo(k){
   $(`${topbar("Padel · Albo d'oro","go:padel")}
     <div class="h1">Albo d'oro</div><div class="pill pad">Padel · WEB CUP</div>
     <div class="alb-cat"><a class="m ${k==="m"?"on":""}" href="#" data-go="padel/albo/m">MASCHILE</a><a class="f ${k==="x"?"on":""}" href="#" data-go="padel/albo/x">MISTO</a></div>
-    ${ED.length?"":`<div class="note" style="text-align:center">Ancora nessun campione del Master Finale ${C.nome} inserito.</div>`}${ED.map(([y,L])=>`<div class="h1 t-round">${y}</div><div class="albo">${L.map(t=>`<div class="ar t-ar ${t.liv} ${PCLS[k]}"><span class="ay">${y}</span>${t.master?tTrophy(t.liv):pMed(t.liv)}${pAv(t.w.split(" / ")).replace('class="pav"','class="pav alb"')}<span class="as">${plink("tennis",t.w)}${NTH.get(t)>1?` <span class="alb-x">x${NTH.get(t)}</span>`:""}<small style="display:block;font-size:11px;opacity:.75;font-weight:600">${t.nome}</small></span></div>`).join("")}</div>`).join("")}
+    ${ED.length?"":`<div class="note" style="text-align:center">Ancora nessun campione del Master Finale ${C.nome} inserito.</div>`}${ED.map(([y,L])=>`<div class="h1 t-round">${y}</div><div class="albo">${L.map(t=>`<div class="ar t-ar ${t.liv} ${PCLS[k]}"><span class="ay">${y}</span>${t.master?tTrophy(t.liv):pMed(t.liv)}${pAv(t.w.split(" / ")).replace('class="pav"','class="pav alb"')}<span class="as">${t.w.split(" / ").map(n=>plink("padel",n)).join(" / ")}${NTH.get(t)>1?` <span class="alb-x">x${NTH.get(t)}</span>`:""}<small style="display:block;font-size:11px;opacity:.75;font-weight:600">${t.nome}</small></span></div>`).join("")}</div>`).join("")}
     <div class="note">Nell'albo d'oro ci sono solo i campioni del Master Finale, che assegna la WEB CUP. Le tappe servono ad accumulare punti per il Master. ${(PADEL.master.risultati||{}).m?"":"Il campione del Master 2026 Doppio Maschile verrà aggiunto appena disponibile."}</div>`);
 }
 function padelReg(){
@@ -2612,7 +2612,7 @@ function navTo(path,y,push){ CURP=path; go(path);
 window.addEventListener("popstate",e=>{ const s=e.state||{}; DEPTH=s.d||0; const y=s.y||0;
   CURP=(location.hash||"").replace(/^#\/?/,""); go(CURP); window.scrollTo(0,y); requestAnimationFrame(()=>window.scrollTo(0,y)); });
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261127171456";
+const BUILD="20261127172701";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
