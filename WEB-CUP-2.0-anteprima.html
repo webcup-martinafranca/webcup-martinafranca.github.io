@@ -2173,7 +2173,7 @@ const MESI=["GEN","FEB","MAR","APR","MAG","GIU","LUG","AGO","SET","OTT","NOV","D
 const gzData = a => { const m=(a.data||"").split("/"); return m.length===3?{g:m[0],m:MESI[+m[1]-1],y:m[2]}:{g:"–",m:"",y:a.anno}; };
 
 /* ============ PHOTO GALLERY interna (foto su /gallery del sito) ============ */
-let GAL_BASE=/webcup-martinafranca\.github\.io$|^localhost$/.test(location.hostname)?"gallery/":"https://webcup-martinafranca.github.io/gallery/";
+let GAL_BASE=/webcup-martinafranca\.github\.io$|webmasculinestore\.com$|^localhost$/.test(location.hostname)?"gallery/":"https://webcup-martinafranca.github.io/gallery/";
 let GAL=null;
 function galLoad(){ if(GAL) return Promise.resolve(GAL);
   const q="index.json?v="+(typeof BUILD!=="undefined"?BUILD:Date.now()), ABS="https://webcup-martinafranca.github.io/gallery/";
@@ -2196,7 +2196,7 @@ function galInfo(a,cat){ const c=DATA[cat+"/"+a.comp]||{}, p=galMatch(a,cat), y=
 function galleria(cat,id){
   const C=CAT[cat];
   $(`${topbar("Photo gallery · "+C.nome,id?"go:calcio/"+cat+"/foto":"go:calcio/"+cat+"/media")}<div class="gal-load">Caricamento foto…</div>`);
-  if(!/webcup-martinafranca\.github\.io$|^localhost$/.test(location.hostname)){
+  if(!/webcup-martinafranca\.github\.io$|webmasculinestore\.com$|^localhost$/.test(location.hostname)){
     $(`${topbar("Photo gallery · "+C.nome,"go:calcio/"+cat+"/media")}<div class="h1">Photo gallery</div><div class="pill ${C.cls}">Calcio · ${C.nome}</div>
     <div class="note" style="text-align:center;margin:24px 20px">In questa anteprima le foto non si possono caricare.<br>Aprile sul sito WEB CUP:</div>
     <a class="mb" href="https://webcup-martinafranca.github.io/#/calcio/${cat}/foto${id?"/"+id:""}" target="_blank" rel="noopener"><span class="mi">${ICO.cam}</span><span class="mt"><b>Apri la Photo gallery</b><small>Tutte le foto del torneo</small></span><span class="arr">›</span></a>`); return; }
@@ -2221,7 +2221,7 @@ function galleria(cat,id){
 }
 function galSport(sp,id){
   const nome=sp==="tennis"?"Tennis":"Padel", cls=sp==="tennis"?"ten":"pad", back="go:"+sp;
-  if(!/webcup-martinafranca\.github\.io$|^localhost$/.test(location.hostname)){
+  if(!/webcup-martinafranca\.github\.io$|webmasculinestore\.com$|^localhost$/.test(location.hostname)){
     $(`${topbar("Photo gallery · "+nome,back)}<div class="h1">Photo gallery</div><div class="pill ${cls}">${nome}</div>
     <div class="note" style="text-align:center;margin:24px 20px">In questa anteprima le foto non si possono caricare.<br>Aprile sul sito WEB CUP:</div>
     <a class="mb" href="https://webcup-martinafranca.github.io/#/${sp}/foto${id?"/"+id:""}" target="_blank" rel="noopener"><span class="mi">${ICO.cam}</span><span class="mt"><b>Apri la Photo gallery</b><small>Tutte le foto del torneo</small></span><span class="arr">›</span></a>`); return; }
@@ -2612,7 +2612,7 @@ function navTo(path,y,push){ CURP=path; go(path);
 window.addEventListener("popstate",e=>{ const s=e.state||{}; DEPTH=s.d||0; const y=s.y||0;
   CURP=(location.hash||"").replace(/^#\/?/,""); go(CURP); window.scrollTo(0,y); requestAnimationFrame(()=>window.scrollTo(0,y)); });
 /* ---- aggiornamento automatico: a ogni click controlla se è uscita una versione nuova ---- */
-const BUILD="20261126220525";
+const BUILD="20261127171456";
 function checkUpd(){
   if(location.protocol.indexOf("http")!==0) return Promise.resolve(null);
   const ctl=window.AbortController?new AbortController():null; const tm=setTimeout(()=>ctl&&ctl.abort(),900);
