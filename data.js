@@ -108,12 +108,13 @@ const DATA = {
 },
 
 "under/mundialito": {
-  edizione: "2026", stato: "In corso", rose: "ROSE_MUNDIALITO_U", fotoPre: "MU:", noFotoFallback: true,
+  edizione: "2026", stato: "Conclusa", rose: "ROSE_MUNDIALITO_U", fotoPre: "MU:", noFotoFallback: true,
+  podio: ["Over The Top All Star","SDC Scappati di Casa","FC Gial"],
   squadre: ["San Francesco","Over The Top All Star","SDC Scappati di Casa","FC Gial"],
   partite: [
     {fase:"Semifinale", data:"21/11", casa:"San Francesco", ospite:"Over The Top All Star", gc:1, go:4, m:["Carrieri N.","Santoro V. 3, Chieppa"]},
     {fase:"Semifinale", data:"21/11", casa:"SDC Scappati di Casa", ospite:"FC Gial", gc:3, go:2, m:["Marinuzzi 2, Di Giuseppe","Trani 2"]},
-    {fase:"Finale 3° posto", data:"Sabato 28/11 · ore 17:00", casa:"San Francesco", ospite:"FC Gial", gc:null, go:null},
+    {fase:"Finale 3° posto", data:"28/11", casa:"San Francesco", ospite:"FC Gial", gc:3, go:9, m:["Semeraro E. 3","Scialpi 2, Trani 4, Sforza, Ruggieri, Dilonardo"]},
     {fase:"Finale", data:"28/11", casa:"Over The Top All Star", ospite:"SDC Scappati di Casa", gc:2, go:1, m:["Chieppa, Caramia","Marinuzzi"]}
   ]
 },
