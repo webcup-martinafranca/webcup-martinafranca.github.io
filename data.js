@@ -114,15 +114,15 @@ const DATA = {
     {fase:"Semifinale", data:"21/11", casa:"San Francesco", ospite:"Over The Top All Star", gc:1, go:4, m:["Carrieri N.","Santoro V. 3, Chieppa"]},
     {fase:"Semifinale", data:"21/11", casa:"SDC Scappati di Casa", ospite:"FC Gial", gc:3, go:2, m:["Marinuzzi 2, Di Giuseppe","Trani 2"]},
     {fase:"Finale 3° posto", data:"Sabato 28/11 · ore 17:00", casa:"San Francesco", ospite:"FC Gial", gc:null, go:null},
-    {fase:"Finale", data:"Sabato 28/11 · ore 18:00", casa:"Over The Top All Star", ospite:"SDC Scappati di Casa", gc:null, go:null}
+    {fase:"Finale", data:"28/11", casa:"Over The Top All Star", ospite:"SDC Scappati di Casa", gc:2, go:1, m:["Chieppa, Caramia","Marinuzzi"]}
   ]
 },
 
 "under/supercoppa": {
   edizione: "2026", stato: "In programma",
-  squadre: ["Real Madrink"],
+  squadre: ["Real Madrink","Over The Top All Star"],
   partite: [
-    {fase:"Finale", data:"Domenica 13/12 · orario da definire", casa:"Real Madrink", ospite:"Vincente Mundialito Under", gc:null, go:null, nota:"Vincitrice WEB CUP vs vincitrice Mundialito"}
+    {fase:"Finale", data:"Domenica 13/12 · orario da definire", casa:"Real Madrink", ospite:"Over The Top All Star", gc:null, go:null, nota:"Vincitrice WEB CUP vs vincitrice Mundialito"}
   ]
 },
 
