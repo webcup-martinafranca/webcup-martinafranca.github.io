@@ -260,7 +260,7 @@ const ROSE_MUNDIALITO_U = {
  "SDC Scappati di Casa": ["Pavone Daniele","Olivieri Donato","Bello Giovanni","Marangi Cesare","Chinnici Antonio","Di Giuseppe Claudio","Marinuzzi Stefano","Carucci Giuseppe","Cosanti Antonio|n:Portiere","Devito Francesco","Carbotti Francesco|C"],
  "Over The Top All Star": ["Scialpi Giuseppe","Caramia Pino","Colucci Maurizio","Ancona Francesco","Santoro Vanni","Serio Andrea","Carbotti Giuseppe","Zaurino Nicola","Chieppa Stefano","Carovigno Graziano","Carrieri Francesco|n:Portiere"],
  "FC Gial": ["Trani Ciro","Sforza Antonio","Gravina Gianluca","Scialpi Carlo","Granaldi Andrea","Devito Walter","Cristofaro Giuseppe","Luprano Nicola|n:Portiere","Ruggieri Giovanni"],
- "San Francesco": ["Manisi Pietro","Carrieri Nicolò","Carbotti Raffaele","Amati Andrea","Semeraro Emmanuele","Schiavone Paolo","Semeraro Fabrizio","Indelicato Francesco","Copertino Emanuele","Basile Vito","Colucci Cosimo Fortunato|n:Portiere"]
+ "San Francesco": ["Manisi Pietro","Carrieri Nicolò","Carbotti Raffaele","Amati Andrea","Semeraro Emmanuele","Schiavone Paolo","Semeraro Fabrizio","Indelicato Francesco","Copertino Emanuele","Basile Vito","Colucci Cosimo Fortunato|n:Portiere","Calabretti Francesco"]
 };
 
 /* ARCHIVIO STORICO – rose vincitrici e premi delle edizioni passate (per i trofei personali dei giocatori)
